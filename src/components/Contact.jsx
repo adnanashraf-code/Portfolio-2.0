@@ -1,67 +1,53 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Github, Linkedin } from 'lucide-react';
+import { Mail, Github, Linkedin, Send } from 'lucide-react';
 
 function Contact() {
   return (
     <section id="contact" className="container reveal">
-      <span className="section-label">GET IN TOUCH</span>
-      <h2 className="section-title">LET'S BUILD <span className="text-gradient">TOGETHER</span></h2>
-      
-      <div className="contact-grid">
+      <span className="section-label">CONTACT</span>
+      <h2 className="section-title">LET'S <span className="highlight">CONNECT</span></h2>
+
+      <div className="grid-2">
         <div>
-          <h3 style={{ fontSize: '2rem', marginBottom: '1.5rem', color: 'var(--text-light)' }}>Contact Information</h3>
-          <p style={{ marginBottom: '2rem' }}>
-            I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+          <p style={{ fontSize: '1.4rem', marginBottom: '2.5rem' }}>
+            I'm always open to discussing new projects, creative ideas, or opportunities. 
+            Whether you have a question or just want to say hi, my inbox is always open.
           </p>
           
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <div style={{ width: '50px', height: '50px', borderRadius: '12px', background: 'rgba(6,182,212,0.1)', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'var(--primary-cyan)' }}>
-                <Mail />
+            <a href="mailto:adnan.ashraf.322@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', textDecoration: 'none', color: 'inherit' }}>
+              <div className="glass" style={{ width: '60px', height: '60px', borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary-cyan)' }}>
+                <Mail size={24} />
               </div>
               <div>
-                <span style={{ display: 'block', fontSize: '0.9rem', color: 'var(--text-muted)' }}>Email</span>
-                <a href="mailto:adnanashraf7205@gmail.com" style={{ color: 'var(--text-light)', textDecoration: 'none', fontWeight: '600' }}>adnanashraf7205@gmail.com</a>
+                <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)', display: 'block' }}>Email Me</span>
+                <span style={{ fontSize: '1.2rem', fontWeight: '600' }}>adnan.ashraf.322@gmail.com</span>
               </div>
-            </div>
-            
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <div style={{ width: '50px', height: '50px', borderRadius: '12px', background: 'rgba(245,158,11,0.1)', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'var(--primary-gold)' }}>
-                <Phone />
-              </div>
-              <div>
-                <span style={{ display: 'block', fontSize: '0.9rem', color: 'var(--text-muted)' }}>Phone</span>
-                <a href="tel:+917847827969" style={{ color: 'var(--text-light)', textDecoration: 'none', fontWeight: '600' }}>+91 7847827969</a>
-              </div>
-            </div>
-            
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <div style={{ width: '50px', height: '50px', borderRadius: '12px', background: 'rgba(255,255,255,0.05)', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'var(--text-light)' }}>
-                <MapPin />
-              </div>
-              <div>
-                <span style={{ display: 'block', fontSize: '0.9rem', color: 'var(--text-muted)' }}>Location</span>
-                <span style={{ color: 'var(--text-light)', fontWeight: '600' }}>India</span>
-              </div>
+            </a>
+
+            <div style={{ display: 'flex', gap: '1.5rem', marginTop: '1rem' }}>
+              <a href="https://github.com/adnanashraf-code" target="_blank" rel="noreferrer" className="glass" style={{ width: '60px', height: '60px', borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-light)', transition: '0.3s ease' }}>
+                <Github size={24} />
+              </a>
+              <a href="https://www.linkedin.com/in/adnan-ashraf-8baa04225/" target="_blank" rel="noreferrer" className="glass" style={{ width: '60px', height: '60px', borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-light)', transition: '0.3s ease' }}>
+                <Linkedin size={24} />
+              </a>
             </div>
           </div>
+        </div>
+
+        <form className="glass" style={{ padding: '3rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '1.5rem' }}>
+            <input type="text" placeholder="Name" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid var(--glass-border)', padding: '1rem', borderRadius: '8px', color: '#fff', fontSize: '1rem' }} />
+            <input type="email" placeholder="Email" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid var(--glass-border)', padding: '1rem', borderRadius: '8px', color: '#fff', fontSize: '1rem' }} />
+          </div>
+          <input type="text" placeholder="Subject" style={{ width: '100%', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--glass-border)', padding: '1rem', borderRadius: '8px', color: '#fff', fontSize: '1rem', marginBottom: '1.5rem' }} />
+          <textarea placeholder="Message" rows="5" style={{ width: '100%', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--glass-border)', padding: '1rem', borderRadius: '8px', color: '#fff', fontSize: '1rem', marginBottom: '2rem', resize: 'none' }}></textarea>
           
-          <div className="social-links">
-            <a href="https://github.com/adnanashraf-code" target="_blank" rel="noreferrer" className="social-icon"><Github size={20} /></a>
-            <a href="https://linkedin.com/in/adnanashraf78" target="_blank" rel="noreferrer" className="social-icon"><Linkedin size={20} /></a>
-          </div>
-        </div>
-        
-        <div className="glass" style={{ padding: '2.5rem' }}>
-          <h3 style={{ marginBottom: '1.5rem', color: 'var(--text-light)' }}>Send a Message</h3>
-          <form onSubmit={(e) => e.preventDefault()}>
-            <input type="text" placeholder="Your Name" required />
-            <input type="email" placeholder="Your Email" required />
-            <input type="text" placeholder="Subject" required />
-            <textarea placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit" className="btn-primary" style={{ width: '100%', padding: '1rem' }}>Send Message</button>
-          </form>
-        </div>
+          <button type="button" className="btn-primary" style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
+            <Send size={18} /> Send Message
+          </button>
+        </form>
       </div>
     </section>
   );
