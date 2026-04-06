@@ -3,6 +3,28 @@ import { Briefcase, Code2, Zap, Palette, Layout, Cpu } from 'lucide-react';
 function HeroVisual() {
   return (
     <div className="hero-visual-container">
+      {/* Name above card */}
+      <div className="hero-card-name">ADNAN ASHRAF</div>
+
+      {/* Rotating Background SVG */}
+      <div className="hero-visual-svg-bg">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <path 
+            fill="none" 
+            stroke="rgba(244, 5, 5)" 
+            strokeWidth="0.5" 
+            d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0" 
+            strokeDasharray="5,5"
+          />
+          <path 
+            fill="none" 
+            stroke="rgba(255, 255, 255, 0.7)" 
+            strokeWidth="1" 
+            d="M 100, 100 m -90, 0 a 90,90 0 1,0 180,0 a 90,90 0 1,0 -180,0"
+          />
+        </svg>
+      </div>
+
       {/* Background Glow */}
       <div className="hero-bg-glow"></div>
       
