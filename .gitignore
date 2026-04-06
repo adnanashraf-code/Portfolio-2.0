@@ -15,3 +15,7 @@ dist/
 # Portfolio specific ignore
 portfolio_details.txt
 portfolio_details.md
+
+# Portfolio specific ignore
+portfolio_details.txt   
+portfolio_details.md
