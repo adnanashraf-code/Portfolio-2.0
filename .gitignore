@@ -1,0 +1,17 @@
+# Node modules
+node_modules/
+
+# Production build
+dist/
+
+# Environment variables
+.env
+*.local
+
+# Editor settings
+.vscode/
+.idea/
+
+# Portfolio specific ignore
+portfolio_details.txt
+portfolio_details.md

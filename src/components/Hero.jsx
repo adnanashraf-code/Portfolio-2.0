@@ -17,20 +17,14 @@ function HeroVisual({ mousePos }) {
         <span className="word word-2">FULL-STACK ENGINEER</span>
       </div>
 
-      {/* SVG FILTER */}
-      <svg
-        style={{
-          position: "absolute",
-          width: 0,
-          height: 0,
-          pointerEvents: "none",
-        }}
-      >
+      {/* SVG FILTER - Move to more robust values */}
+      {/* SVG FILTER - RESTORED FOR STABLE MORPHING */}
+      <svg style={{ position: "absolute", width: 0, height: 0 }}>
         <defs>
           <filter id="threshold">
             <feGaussianBlur
               in="SourceGraphic"
-              stdDeviation="12"
+              stdDeviation="1.5"
               result="blur"
             />
 
@@ -38,11 +32,11 @@ function HeroVisual({ mousePos }) {
               in="blur"
               type="matrix"
               values="
-            1 0 0 0 0
-            0 1 0 0 0
-            0 0 1 0 0
-            0 0 0 255 -140
-          "
+          1 0 0 0 0
+          0 1 0 0 0
+          0 0 1 0 0
+          0 0 0 8 -2
+        "
               result="goo"
             />
 
@@ -116,16 +110,20 @@ function Hero() {
       onMouseMove={handleMouseMove}
     >
       <div className="hero-text">
-        <span className="section-label">INTRODUCTION</span>
+        <div className="hero-status-badges">
+          <div className="status-badge available">
+            <span className="status-dot"></span>
+            Available for work
+          </div>
+          <div className="status-badge location">India • Remote</div>
+        </div>
         <h1 className="hero-title">
           CRAFTING <span className="text-gradient">PREMIUM</span> FRONTEND
           INTERFACES
         </h1>
         <p>
-          I am a Frontend Specialist dedicated to building high-performance,
-          pixel-perfect web applications. I transform complex ideas into
-          seamless digital experiences using modern tools and creative
-          engineering.
+          I craft high-performance, pixel-precise interfaces that transform
+          complex ideas into intuitive digital experiences.
         </p>
 
         <div className="hero-stats">

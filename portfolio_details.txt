@@ -37,3 +37,34 @@ Portfolio Analysis: https://www.kenilsangani.tech/
 * 3D Rendering: Three.js and React Three Fiber (R3F).
 * Language: TypeScript for robust type safety.
 * Backend Focus: Node.js, Express, and MongoDB.
+
+
+<svg style={{ position: "absolute", width: 0, height: 0 }}>
+  <defs>
+    <filter id="threshold">
+      <feGaussianBlur
+        in="SourceGraphic"
+        stdDeviation="1.5"
+        result="blur"
+      />
+
+      <feColorMatrix
+        in="blur"
+        type="matrix"
+        values="
+          1 0 0 0 0
+          0 1 0 0 0
+          0 0 1 0 0
+          0 0 0 8 -2
+        "
+        result="goo"
+      />
+
+      <feComposite
+        in="SourceGraphic"
+        in2="goo"
+        operator="atop"
+      />
+    </filter>
+  </defs>
+</svg>
