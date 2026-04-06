@@ -313,30 +313,54 @@ main {
   align-items: center;
   position: relative;
   width: 100%;
-  height: 550px;
-  margin-top: -80px;
+  height: 600px;
+  margin-top: 40px; /* Shifted down */
 }
 
-.hero-card-name {
+.hero-branding-morph {
   position: absolute;
-  top: -60px;
+  top: -40px; /* Branding closer to card top */
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: url(#threshold);
+  z-index: 100;
+  pointer-events: none;
+}
+
+.word {
+  position: absolute;
   font-family: var(--font-mono);
   font-weight: 950;
-  font-size: 2rem;
-  color: var(--text-light);
+  font-size: 2.2rem;
+  color: #fff;
   letter-spacing: 12px;
-  z-index: 10;
-  text-shadow: 0 0 30px rgba(6, 182, 212, 0.5);
+  text-align: center;
   white-space: nowrap;
+  opacity: 0;
+  line-height: 1;
 }
 
-.animate-name-float {
-  animation: name-glow-float 5s infinite ease-in-out;
+.word-1 {
+  animation: morph-1 12s infinite ease-in-out;
 }
 
-@keyframes name-glow-float {
-  0%, 100% { transform: translateY(0) scale(1); text-shadow: 0 0 20px rgba(6, 182, 212, 0.3); }
-  50% { transform: translateY(-15px) scale(1.05); text-shadow: 0 0 40px rgba(6, 182, 212, 0.7); }
+.word-2 {
+  animation: morph-2 12s infinite ease-in-out;
+}
+
+@keyframes morph-1 {
+  0%, 45% { opacity: 1; filter: blur(0px); } /* Visible for first half */
+  50%, 95% { opacity: 0; filter: blur(12px); } /* Hidden for second half */
+  100% { opacity: 1; filter: blur(0px); }
+}
+
+@keyframes morph-2 {
+  0%, 45% { opacity: 0; filter: blur(12px); } /* Hidden for first half */
+  50%, 95% { opacity: 1; filter: blur(0px); } /* Visible for second half */
+  100% { opacity: 0; filter: blur(12px); }
 }
 
 .hero-visual-svg-bg {
@@ -611,36 +635,39 @@ textarea:focus {
 
 .profile-image-container {
   position: relative;
-  width: 500px;
+  width: 480px;
   max-width: 90vw;
-  height: 650px;
-  border-radius: 20px;
-  overflow: visible; /* Changed to visible to allow shadow overflow */
+  height: 620px;
+  border-radius: 16px;
+  overflow: visible;
   transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   background: var(--bg-dark);
   z-index: 5;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); /* Base shadow */
+  box-shadow: none;
+  border: none; /* Removed as requested */
 }
 
-/* Hover State - Lift and Scale */
+/* Hover State - Lift Only */
 .profile-visual-wrapper:hover .profile-image-container {
-  transform: translateY(-25px) scale(1.05); /* Significant lift and scale */
-  box-shadow: 
-    0 15px 30px rgba(0, 0, 0, 0.4),
-    0 50px 80px rgba(0, 0, 0, 0.7); /* Deep ground shadow effect */
+  transform: translateY(-15px); /* Lift without scaling */
+}
+
+/* Clear any background boxes */
+.profile-image-container::before {
+  content: none; /* Removed the extra box border */
 }
 
 .about-profile-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+  object-fit:cover;
+  transition: 0.8s ease; 
   z-index: 2;
-  border-radius: 20px;
+  border-radius: 16px;
 }
 
 .profile-visual-wrapper:hover .about-profile-img {
-  filter: contrast(1.1) brightness(1.1); /* Subtle pop on hover */
+  filter: none !important;
 }
 
 .profile-glow {
@@ -648,10 +675,13 @@ textarea:focus {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 130%;
-  height: 130%;
-  background: radial-gradient(circle, rgba(6, 182, 212, 0.4) 0%, transparent 70%);
-  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: -1; 
+  border-radius: 16px;
+  /* Darker, wider spread glow */
+  box-shadow: 0 0 70px 15px rgba(6, 182, 212, 0.25); 
   opacity: 0;
   transition: 0.8s ease;
   pointer-events: none;
@@ -659,51 +689,51 @@ textarea:focus {
 
 .profile-visual-wrapper:hover .profile-glow {
   opacity: 1;
-  transform: translate(-50%, -50%) scale(1.1);
 }
 
+/* Smaller Full Stack Info Card */
 .profile-info-card {
   position: absolute;
-  bottom: 30px;
-  right: 15px;
-  background: rgba(17, 24, 39, 0.9);
+  bottom: 20px;
+  right: -10px;
+  background: rgba(10, 15, 25, 0.95);
   backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
-  padding: 1.5rem 2.5rem;
-  border-radius: 12px;
+  padding: 0.8rem 1.4rem;
+  border-radius: 8px;
   z-index: 20;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-  min-width: 320px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  min-width: 220px; /* Reduced width */
 }
 
 .info-name {
-  font-size: 1.5rem;
+  font-size: 1.1rem; /* Smaller font */
   font-weight: 800;
   color: #fff;
   display: block;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.3rem;
 }
 
 .info-card-body {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
 }
 
 .info-dot {
-  width: 10px;
-  height: 10px;
+  width: 6px;
+  height: 6px;
   background: #22c55e;
   border-radius: 50%;
-  box-shadow: 0 0 12px #22c55e;
+  box-shadow: 0 0 8px #22c55e;
 }
 
 .info-role {
   font-family: var(--font-mono);
-  font-size: 0.9rem;
+  font-size: 0.75rem; /* Smaller font */
   font-weight: 700;
   color: var(--primary-cyan);
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
 }
 
 /* Responsive */
