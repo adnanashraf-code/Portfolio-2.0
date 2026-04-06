@@ -2,8 +2,6 @@
 
 A high-fidelity, editorial-grade personal portfolio built with **React**, **Vite**, and **Vanilla CSS**. This project focuses on modern aesthetics, interactive micro-animations, and liquid visual effects.
 
-![Portfolio Preview](public/hero.png)
-
 ## ✨ Core Features
 
 ### 🌌 Cinematic Hero Experience
