@@ -1,0 +1,39 @@
+Portfolio Analysis: https://www.kenilsangani.tech/
+
+1. GENERAL DESIGN AESTHETIC
+---------------------------
+* Color Palette: Deep charcoal/black background (#030712) with cyan/teal and gold/orange accents.
+* Typography: Modern geometric sans-serif for headings (e.g., "CRAFTING BEAUTIFUL DIGITAL EXPERIENCES") and monospaced fonts for technical labels and stats.
+* Layout: Clean, grid-based layout with significant negative space. Sections are explicitly numbered (e.g., 01 / HERO, 02 / ABOUT).
+
+2. NAVIGATION STRUCTURE
+-----------------------
+* Type: Sticky Glassmorphism navbar that remains at the top during scrolling.
+* Navigation Links: Home, About, Skills, Services, Projects, Testimonials, Contact.
+* Special Element: Prominent "Hire Me" button with a continuous shimmer/gradient sweep animation.
+
+3. KEY SECTIONS
+---------------
+* 01 / HERO: Featured large-scale typography, key statistics (50+ Projects, 3+ Years Exp), and a large interactive 3D wireframe sphere (built with Three.js).
+* 02 / ABOUT: Titled "Engineering precision, designing delight," highlighting full-stack development and leadership roles (Co-founder of CreativityCoder).
+* 03 / SKILLS: Detailed "Technical expertise" section for Frontend, Backend, and Tooling with percentage-based progress bars and interactive cards.
+* 04 / SERVICES: Specialties including Full-Stack Web Apps, SaaS Platform Engineering, and AI-Powered Tools.
+* 05 / PROJECTS: Card-based showcase of featured work with subtle border glow effects on hover.
+* 06 / TESTIMONIALS: A live marquee (scrolling banner) displaying client feedback.
+* 07 / CONTACT: Professional contact form with Name, Email, and Message fields, plus social links (GitHub, LinkedIn, Twitter).
+
+4. INTERACTIVE ELEMENTS & ANIMATIONS
+------------------------------------
+* 3D Effects: Interactive 3D sphere in the hero section using Three.js and React Three Fiber.
+* Hover Effects: Glow and scale transitions on buttons and cards; cyan underline transitions on nav links.
+* Scroll Animations: Smooth entrance (fade-in and slide-up) as sections enter the viewport.
+* Background: Subtle animated grid pattern with floating particle effects throughout the site.
+
+5. TECHNICAL STACK
+------------------
+* Framework: Next.js (React-based) for performance and SEO.
+* Styling: Tailwind CSS for responsive components and layouts.
+* Animations: GSAP (GreenSock) for complex timelines and Framer Motion for UI transitions.
+* 3D Rendering: Three.js and React Three Fiber (R3F).
+* Language: TypeScript for robust type safety.
+* Backend Focus: Node.js, Express, and MongoDB.
