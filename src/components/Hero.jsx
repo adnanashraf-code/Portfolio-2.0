@@ -14,7 +14,7 @@ function HeroVisual({ mousePos }) {
       {/* Morphing Name branding */}
       <div className="morph-container hero-branding-morph">
         <span className="word word-1">ADNAN ASHRAF</span>
-        <span className="word word-2">FULL-STACK ENGINEER</span>
+        <span className="word word-2">FRONTEND DEVELOPER</span>
       </div>
 
       {/* SVG FILTER - Move to more robust values */}
@@ -49,7 +49,7 @@ function HeroVisual({ mousePos }) {
       <div className="hero-visual-svg-bg">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
           <circle cx="100" cy="100" r="75" fill="none" stroke="rgba(6, 181, 212, 0.89)" strokeWidth="0.5" strokeDasharray="7,5" />
-          <circle cx="100" cy="100" r="90" fill="none" stroke="rgba(249, 245, 245, 0.57)" strokeWidth="1" />
+          <circle cx="100" cy="100" r="90" fill="none" stroke="rgba(249, 245, 245, 0.26)" strokeWidth="1" />
           <circle cx="100" cy="100" r="105" fill="none" stroke="rgba(11, 181, 211, 0.1)" strokeWidth="1" strokeDasharray="2,2" />
         </svg>
       </div>

@@ -1228,7 +1228,7 @@ textarea:focus {
 .loader-name {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 3.5rem; /* Reduced from 6rem */
-  letter-spacing: 1px;
+  letter-spacing: 4px;
   color: #fff;
   margin-bottom: 2rem;
   animation: fadeUpIn 0.8s ease-out;

@@ -3,7 +3,7 @@ import React from "react";
 function About() {
   return (
     <section id="about" className="container about-section reveal">
-      <div className="about-breadcrumb">02 / ABOUT</div>
+      <div className="about-breadcrumb">ABOUT</div>
 
       <div className="about-grid">
         {/* Left: Profile Visual */}
@@ -28,7 +28,7 @@ function About() {
                <div className="tag-name">Adnan Ashraf</div>
                <div className="tag-role">
                  <span className="tag-dot"></span>
-                 FULL-STACK DEVELOPER
+                 FRONTEND DEVELOPER
                </div>
             </div>
           </div>
@@ -37,7 +37,7 @@ function About() {
         {/* Right: Content */}
         <div className="about-content">
           <h2 className="about-main-title">
-            Engineering <span className="text-secondary">precision</span>, designing delight.
+            Engineering <span className="text-secondary">precision</span>, meets thoughtful design.
           </h2>
 
           <div className="about-description">
