@@ -2,86 +2,82 @@ import React from "react";
 
 function About() {
   return (
-    <section id="about" className="container reveal">
-      <span className="section-label">ABOUT</span>
-      <h2 className="section-title">
-        ENGINEERING PRECISION, <br />
-        <span className="text-gradient">DESIGNING DELIGHT</span>
-      </h2>
+    <section id="about" className="container about-section reveal">
+      <div className="about-breadcrumb">02 / ABOUT</div>
 
-      <div className="grid-2" style={{ alignItems: "center" }}>
-        <div className="profile-visual-wrapper">
-          <div className="image-accent top-left"></div>
-          <div className="image-accent bottom-right"></div>
-          
-          <div className="profile-image-container">
-            <div className="profile-glow"></div>
+      <div className="about-grid">
+        {/* Left: Profile Visual */}
+        <div className="about-profile-visual">
+          <div className="kenil-frame">
+            <div className="frame-corner top-left"></div>
+            <div className="frame-corner top-right"></div>
+            <div className="frame-corner bottom-left"></div>
+            <div className="frame-corner bottom-right"></div>
+            <div className="halo-glow"></div>
             <img
               src="/profile.png"
               alt="Adnan Ashraf"
-              className="about-profile-img"
+              className="kenil-img"
               onError={(e) => {
                 e.target.src =
                   "https://via.placeholder.com/600x800/030712/06b6d4?text=Adnan+Ashraf";
               }}
             />
-            
-            {/* Full Stack Info Card as per user image */}
-            <div className="profile-info-card">
-              <div className="info-card-header">
-                <span className="info-name">Adnan Ashraf</span>
-              </div>
-              <div className="info-card-body">
-                <div className="info-dot"></div>
-                <span className="info-role">FULL-STACK DEVELOPER</span>
-              </div>
+            {/* Overlay Info Card */}
+            <div className="kenil-info-tag">
+               <div className="tag-name">Adnan Ashraf</div>
+               <div className="tag-role">
+                 <span className="tag-dot"></span>
+                 FULL-STACK DEVELOPER
+               </div>
             </div>
           </div>
         </div>
 
-        <div>
-          <h3
-            style={{
-              fontSize: "2rem",
-              marginBottom: "1.5rem",
-              color: "var(--primary-cyan)",
-            }}
-          >
-            Who Am I?
-          </h3>
-          <p style={{ marginBottom: "1.5rem" }}>
-            I am a Full stack developer with strong JavaScript fundamentals and
-            experience building interactive web applications using HTML, CSS,
-            and Vanilla JavaScript. My passion lies in bridging the gap between
-            design and engineering, ensuring that applications not only function
-            flawlessly but also deliver exceptional user experiences.
-          </p>
-          <p style={{ marginBottom: "2rem" }}>
-            Recently, I refactored the backend architecture of a SaaS dashboard,
-            reducing lines of code by 1200 lines and boosting UI component
-            reusability by 40%. This streamlined feature development and
-            significantly improved code maintainability.
-          </p>
+        {/* Right: Content */}
+        <div className="about-content">
+          <h2 className="about-main-title">
+            Engineering <span className="text-secondary">precision</span>, designing delight.
+          </h2>
 
-          <div className="glass" style={{ padding: "2rem" }}>
-            <h4 style={{ marginBottom: "1rem", color: "var(--text-light)" }}>
-              Education
-            </h4>
-            <div style={{ marginBottom: "1rem" }}>
-              <h5 style={{ color: "var(--primary-cyan)" }}>
-                Bachelor of Computer Applications (BCA)
-              </h5>
-              <p style={{ fontSize: "0.9rem" }}>
-                Sambalpur University, Odisha, India (2022 - 2025)
-              </p>
+          <div className="about-description">
+            <p>
+              I'm <span className="highlight-text">Adnan Ashraf</span>, a full-stack developer obsessed with 
+              building digital experiences that are both technically rigorous and visually stunning.
+            </p>
+            <p>
+              I bridge the gap between engineering and design — writing clean, performant code 
+              while crafting interfaces that feel alive. Every pixel has a purpose.
+            </p>
+          </div>
+
+          {/* Education Terminal (Previously Tech Stack) */}
+          <div className="education-terminal">
+            <div className="terminal-header">
+              <div className="terminal-dots">
+                <span className="dot red"></span>
+                <span className="dot yellow"></span>
+                <span className="dot green"></span>
+              </div>
+              <div className="terminal-title">education.json</div>
             </div>
-            <div>
-              <h5 style={{ color: "var(--primary-cyan)" }}>
-                Senior Secondary Education
-              </h5>
-              <p style={{ fontSize: "0.9rem" }}>
-                Sri Aurobindo School, Rourkela (2019 - 2021)
-              </p>
+            
+            <div className="terminal-body">
+              <div className="edu-group">
+                <div className="edu-label">GRADUATION</div>
+                <div className="edu-item">
+                  <span className="edu-title">Bachelor of Computer Applications</span>
+                  <span className="edu-desc">Sambalpur University • 2022 - 2025</span>
+                </div>
+              </div>
+
+              <div className="edu-group">
+                <div className="edu-label">SCHOOLING</div>
+                <div className="edu-item">
+                  <span className="edu-title">Senior Secondary Education</span>
+                  <span className="edu-desc">Sri Aurobindo School, Rourkela • 2019 - 2021</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

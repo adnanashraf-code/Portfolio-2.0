@@ -4,8 +4,8 @@
 
 [36mvite v5.4.21 [32mbuilding for production...[36m[39m
 transforming...
-[32mΓ£ô[39m 1477 modules transformed.
-x Build failed in 1.36s
+[32mΓ£ô[39m 1743 modules transformed.
+x Build failed in 1.80s
 error during build:
 src/components/Projects.jsx (2:23): "GitHub" is not exported by "node_modules/lucide-react/dist/esm/lucide-react.js", imported by "src/components/Projects.jsx".
 file: C:/Users/Adnan/Desktop/Project work/antigravity/protfolio 2.0/src/components/Projects.jsx:2:23

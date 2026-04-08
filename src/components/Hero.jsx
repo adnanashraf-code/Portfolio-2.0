@@ -48,19 +48,9 @@ function HeroVisual({ mousePos }) {
       {/* Rotating Background SVG */}
       <div className="hero-visual-svg-bg">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <path
-            fill="none"
-            stroke="rgba(6, 181, 212)"
-            strokeWidth="0.5"
-            d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
-            strokeDasharray="5,5"
-          />
-          <path
-            fill="none"
-            stroke="rgba(255, 255, 255, 0.7)"
-            strokeWidth="1"
-            d="M 100, 100 m -90, 0 a 90,90 0 1,0 180,0 a 90,90 0 1,0 -180,0"
-          />
+          <circle cx="100" cy="100" r="75" fill="none" stroke="rgba(6, 181, 212, 0.89)" strokeWidth="0.5" strokeDasharray="7,5" />
+          <circle cx="100" cy="100" r="90" fill="none" stroke="rgba(249, 245, 245, 0.57)" strokeWidth="1" />
+          <circle cx="100" cy="100" r="105" fill="none" stroke="rgba(11, 181, 211, 0.1)" strokeWidth="1" strokeDasharray="2,2" />
         </svg>
       </div>
 
