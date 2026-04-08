@@ -947,7 +947,7 @@ textarea:focus {
   position: absolute;
   bottom: 30px;
   right: -30px;
-  background: #0d111b;
+  background: oklab(33.048% 0.01313 -0.20625);
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 1.2rem 1.8rem;
   border-radius: 8px;
