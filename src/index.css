@@ -928,10 +928,10 @@ textarea:focus {
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.8);
-  width: 90%;
-  height: 90%;
-  background: radial-gradient(circle, rgba(0, 212, 255, 0.4) 0%, rgba(0, 212, 255, 0.1) 60%, transparent 80%);
-  filter: blur(40px);
+  width: 100%; /* Increased width */
+  height: 100%; /* Increased height */
+  background: radial-gradient(circle, rgba(0, 71, 255, 0.8) 0%, rgba(2, 13, 78, 0.4) 50%, transparent 85%);
+  filter: blur(50px);
   z-index: -1;
   border-radius: 50%;
   opacity: 0;
@@ -940,7 +940,7 @@ textarea:focus {
 
 .kenil-frame:hover .halo-glow {
   opacity: 1;
-  transform: translate(-50%, -50%) scale(1.15);
+  transform: translate(-50%, -50%) scale(1.25); /* Increased scale */
 }
 
 .kenil-info-tag {
