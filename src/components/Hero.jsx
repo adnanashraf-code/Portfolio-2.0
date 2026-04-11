@@ -12,7 +12,7 @@ function HeroVisual({ mousePos }) {
       style={{ transform: `translate(${tx}px, ${ty}px)` }}
     >
       {/* Morphing Name branding */}
-      <div className="morph-container hero-branding-morph">
+      <div className="hero-branding-morph">
         <span className="word word-1">ADNAN ASHRAF</span>
         <span className="word word-2">FRONTEND DEVELOPER</span>
       </div>
@@ -22,25 +22,12 @@ function HeroVisual({ mousePos }) {
       <svg style={{ position: "absolute", width: 0, height: 0 }}>
         <defs>
           <filter id="threshold">
-            <feGaussianBlur
-              in="SourceGraphic"
-              stdDeviation="1.5"
-              result="blur"
-            />
-
+            {/* Liquid Threshold Matrix from reference */}
             <feColorMatrix
-              in="blur"
+              in="SourceGraphic"
               type="matrix"
-              values="
-          1 0 0 0 0
-          0 1 0 0 0
-          0 0 1 0 0
-          0 0 0 8 -2
-        "
-              result="goo"
+              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
             />
-
-            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
           </filter>
         </defs>
       </svg>
@@ -59,7 +46,14 @@ function HeroVisual({ mousePos }) {
 
       {/* Profile Image Wrapper */}
       <div className="hero-profile-wrapper">
-        <img src="/hero.png" alt="Adnan Ashraf" className="hero-profile-img" />
+        <img 
+          src="/hero.png" 
+          alt="Adnan Ashraf - Frontend Developer" 
+          className="hero-profile-img" 
+          loading="eager"
+          width="360"
+          height="480"
+        />
 
         {/* Floating Badges */}
         <div className="floating-badge vibe-coder">
@@ -100,13 +94,6 @@ function Hero() {
       onMouseMove={handleMouseMove}
     >
       <div className="hero-text">
-        <div className="hero-status-badges">
-          <div className="status-badge available">
-            <span className="status-dot"></span>
-            Available for work
-          </div>
-          <div className="status-badge location">India • Remote</div>
-        </div>
         <h1 className="hero-title">
           CRAFTING <span className="text-gradient">PREMIUM</span> FRONTEND
           INTERFACES
@@ -131,14 +118,16 @@ function Hero() {
           </div>
         </div>
 
-        <div style={{ marginTop: "3rem", display: "flex", gap: "1.2rem" }}>
+        <div className="hero-btns-container">
           <a
             href="#projects"
             className="btn-primary"
+            aria-label="View portfolio projects"
             style={{
               display: "inline-flex",
               alignItems: "center",
               gap: "0.8rem",
+              whiteSpace: "nowrap"
             }}
           >
             <Briefcase size={20} /> View My Work
@@ -148,12 +137,14 @@ function Hero() {
             target="_blank"
             rel="noreferrer"
             className="btn-primary"
+            aria-label="Visit my GitHub profile"
             style={{
               display: "inline-flex",
               alignItems: "center",
               gap: "0.8rem",
               background: "rgba(255,255,255,0.03)",
               borderColor: "var(--glass-border)",
+              whiteSpace: "nowrap"
             }}
           >
             <Code2 size={20} /> GitHub

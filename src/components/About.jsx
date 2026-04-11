@@ -1,4 +1,5 @@
 import React from "react";
+import { ArrowUpRight } from "lucide-react";
 
 function About() {
   return (
@@ -8,7 +9,7 @@ function About() {
       <div className="about-grid">
         {/* Left: Profile Visual */}
         <div className="about-profile-visual">
-          <div className="kenil-frame">
+          <div className="profile-frame">
             <div className="frame-corner top-left"></div>
             <div className="frame-corner top-right"></div>
             <div className="frame-corner bottom-left"></div>
@@ -16,15 +17,18 @@ function About() {
             <div className="halo-glow"></div>
             <img
               src="/profile.png"
-              alt="Adnan Ashraf"
-              className="kenil-img"
+              alt="Adnan Ashraf Profile Photo"
+              className="profile-img"
+              loading="lazy"
+              width="420"
+              height="525"
               onError={(e) => {
                 e.target.src =
                   "https://via.placeholder.com/600x800/030712/06b6d4?text=Adnan+Ashraf";
               }}
             />
             {/* Overlay Info Card */}
-            <div className="kenil-info-tag">
+            <div className="profile-info-tag">
                <div className="tag-name">Adnan Ashraf</div>
                <div className="tag-role">
                  <span className="tag-dot"></span>
@@ -36,11 +40,11 @@ function About() {
 
         {/* Right: Content */}
         <div className="about-content">
-          <h2 className="about-main-title">
+          <h2 className="about-main-title reveal">
             Engineering <span className="text-secondary">precision</span>, meets thoughtful design.
           </h2>
 
-          <div className="about-description">
+          <div className="about-description reveal">
             <p>
               I'm <span className="highlight-text">Adnan Ashraf</span>, a full-stack developer obsessed with 
               building digital experiences that are both technically rigorous and visually stunning.
@@ -49,10 +53,13 @@ function About() {
               I bridge the gap between engineering and design — writing clean, performant code 
               while crafting interfaces that feel alive. Every pixel has a purpose.
             </p>
+            <a href="/resume.pdf" target="_blank" className="resume-link">
+              Download Resume <ArrowUpRight size={20} />
+            </a>
           </div>
 
           {/* Education Terminal (Previously Tech Stack) */}
-          <div className="education-terminal">
+          <div className="education-terminal reveal">
             <div className="terminal-header">
               <div className="terminal-dots">
                 <span className="dot red"></span>

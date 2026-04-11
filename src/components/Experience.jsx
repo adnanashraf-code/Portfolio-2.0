@@ -22,7 +22,7 @@ function Experience() {
       
       <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
         {experiences.map((exp, index) => (
-          <div key={index} className="card glass">
+          <div key={index} className="card glass reveal">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.5rem' }}>
               <div>
                 <h3 style={{ fontSize: '1.5rem', color: 'var(--text-light)' }}>{exp.title}</h3>

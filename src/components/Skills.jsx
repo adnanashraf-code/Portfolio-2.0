@@ -15,7 +15,7 @@ function Skills() {
       <h2 className="section-title">TECHNICAL <span className="highlight">EXPERTISE</span></h2>
       
       <div className="grid-2">
-        <div className="glass" style={{ padding: '2rem' }}>
+        <div className="glass reveal" style={{ padding: '2rem' }}>
           <h3 style={{ marginBottom: '2rem', color: 'var(--primary-cyan)' }}>Core Competencies</h3>
           
           {skillsList.map((skill, idx) => (
@@ -31,7 +31,7 @@ function Skills() {
           ))}
         </div>
         
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+        <div className="reveal" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
           <div className="card glass">
             <h4 style={{ color: 'var(--primary-cyan)', marginBottom: '1rem' }}>Web Dev</h4>
             <p style={{ fontSize: '0.9rem' }}>Responsive Web Design, UI Fundamentals, Client Side State Management, LocalStorage.</p>

@@ -24,7 +24,7 @@ function Projects() {
       
       <div className="grid-2">
         {projects.map((proj, idx) => (
-          <div key={idx} className="card glass" style={{ display: 'flex', flexDirection: 'column' }}>
+          <div key={idx} className="card glass reveal" style={{ display: 'flex', flexDirection: 'column' }}>
             <h3 className="card-title">{proj.title}</h3>
             
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.5rem' }}>

@@ -10,7 +10,7 @@ function Contact() {
       </h2>
 
       <div className="grid-2">
-        <div>
+        <div className="reveal">
           <p style={{ fontSize: "1.4rem", marginBottom: "2.5rem" }}>
             I'm always open to discussing new projects, creative ideas, or
             opportunities. Whether you have a question or just want to say hi,
@@ -55,7 +55,7 @@ function Contact() {
                   Email Me
                 </span>
                 <span style={{ fontSize: "1.2rem", fontWeight: "600" }}>
-                  adnanashraf7205@gamil.com
+                  adnanashraf7205@gmail.com
                 </span>
               </div>
             </a>
@@ -66,6 +66,7 @@ function Contact() {
                 target="_blank"
                 rel="noreferrer"
                 className="glass"
+                aria-label="GitHub Profile"
                 style={{
                   width: "60px",
                   height: "60px",
@@ -80,10 +81,11 @@ function Contact() {
                 <Github size={24} />
               </a>
               <a
-                href="https://www.linkedin.com/in/adnan-ashraf-8baa04225/"
+                href="https://www.linkedin.com/in/adnanashraf20/"
                 target="_blank"
                 rel="noreferrer"
                 className="glass"
+                aria-label="LinkedIn Profile"
                 style={{
                   width: "60px",
                   height: "60px",
@@ -101,7 +103,7 @@ function Contact() {
           </div>
         </div>
 
-        <form className="glass" style={{ padding: "3rem" }}>
+        <form className="glass reveal" style={{ padding: "3rem" }}>
           <div
             style={{
               display: "grid",
