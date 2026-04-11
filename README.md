@@ -5,18 +5,20 @@ A high-fidelity, editorial-grade personal portfolio built with **React**, **Vite
 ## ✨ Core Features
 
 ### 🌌 Cinematic Hero Experience
-- **Morphing Identity Branding**: A fluid "gooey" text animation using custom SVG threshold filters that transitions between names and titles.
+- **Liquid Morphing Branding**: A refined, symmetrical "gooey" text animation using custom SVG threshold filters and a 12s calm cycle.
+- **Bubble Typography**: Integrated 'Fredoka' bubble font for a playful yet sleek liquid visual effect.
 - **Interactive Parallax Visuals**: A mouse-tracking portrait system with 3D-depth effects and floating high-tech badges.
-- **Status Indicator**: Dynamic "Available for work" badge with a biological pulsating green signal.
 
 ### 🎭 Atmospheric Design System
+- **Scroll Reveal System**: Independent intersection-observer based animations for every UI element (titles, cards, terminal).
+- **Premium CTAs**: Animated "Download Resume" with continuous floating and glowing effects.
 - **Dark Glassmorphism**: Premium frosted-glass components with subtle border lighting.
 - **Atmospheric Glow**: Wide-spread radial glow effects that react to user hovering in the About section.
-- **Micro-Animations**: Smooth interactions using custom `cubic-bezier` transitions for a luxury feel.
 
-### 📱 Responsive & Performant
-- **Editorial Layout**: A wide 1550px container optimized for clean, high-end widescreen displays.
-- **Vite Power**: Lightning-fast development and optimized production builds.
+### 📱 Responsive & Optimized
+- **Performance First**: Optimized CLS (Cumulative Layout Shift) using layout isolation (`contain: content`) and reserved space containers.
+- **SEO & Accessibility**: Complete meta-tag integration and ARIA labels for a 90+ Lighthouse score.
+- **Enhanced Mobile Experience**: Polished spacing and font scaling for perfect tablet and mobile viewing.
 
 ## 🛠️ Technology Stack
 - **Frontend**: React.js 18
