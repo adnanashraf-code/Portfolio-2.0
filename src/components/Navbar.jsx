@@ -5,7 +5,7 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav>
+    <nav className="navbar-main">
       <div className="container nav-container">
         <a href="#" className="logo">Adnan</a>
         

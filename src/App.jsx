@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { ArrowUp } from "lucide-react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -7,17 +8,24 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Loader from "./components/Loader";
+import CustomCursor from "./components/CustomCursor";
 
 function App() {
-  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [loading, setLoading] = useState(true);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      setCursorPos({ x: e.clientX, y: e.clientY });
+    const handleScroll = () => {
+      const currentScroll = window.scrollY;
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const percentage = (currentScroll / totalHeight) * 100;
+      setScrollProgress(percentage);
+      setShowScrollTop(window.scrollY > 400);
     };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -31,11 +39,10 @@ function App() {
           }
         });
       },
-      { threshold: 0.1 },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
     );
 
     document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
-
     return () => observer.disconnect();
   }, [loading]);
 
@@ -43,22 +50,26 @@ function App() {
     <>
       <Loader onComplete={() => setLoading(false)} />
       {!loading && (
-        <>
-          {/* Custom Mouse Follower */}
-          <div
-            className="custom-cursor"
-            style={{ left: cursorPos.x, top: cursorPos.y }}
-          >
-            <div className="cursor-dot"></div>
-            <div className="cursor-ring"></div>
-          </div>
+        <div className="app-main-wrapper">
+          <CustomCursor />
+          
+          {/* Background Elements */}
+          <div className="bg-grid" aria-hidden="true"></div>
+          <div className="glow-orb cyan" aria-hidden="true"></div>
 
-          <div className="bg-grid"></div>
-          <div className="glow-orb cyan"></div>
+          {/* Scroll Progress Bar */}
+          <div 
+            className="scroll-progress-bar" 
+            style={{ width: `${scrollProgress}%` }}
+            role="progressbar"
+            aria-valuenow={scrollProgress}
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
 
           <Navbar />
 
-          <main>
+          <main id="main-content">
             <Hero />
             <About />
             <Experience />
@@ -67,17 +78,36 @@ function App() {
             <Contact />
           </main>
 
-          <footer
-            style={{
-              textAlign: "center",
-              padding: "2rem 0",
-              color: "var(--text-muted)",
-              borderTop: "1px solid var(--glass-border)",
-            }}
-          >
-            <p>© 2026 Adnan Ashraf. Crafted with code and intent.</p>
+          <footer className="footer-modern">
+            <div className="container footer-content">
+              <div className="footer-left">
+                <span className="footer-logo">ADNAN<span>.</span></span>
+                <span className="copyright">© 2026 Adnan Ashraf. Built for performance.</span>
+              </div>
+              
+              <nav className="footer-nav" aria-label="Footer Navigation">
+                <a href="#home">HOME</a>
+                <a href="#about">ABOUT</a>
+                <a href="#skills">SKILLS</a>
+                <a href="#projects">PROJECTS</a>
+                <a href="#contact">CONTACT</a>
+              </nav>
+
+              <div className="footer-right">
+                <p>Designed & Developed with <span className="heart" aria-label="heart">❤</span></p>
+              </div>
+            </div>
           </footer>
-        </>
+
+          {/* Scroll To Top Button */}
+          <button 
+            className={`scroll-to-top ${showScrollTop ? 'visible' : ''}`}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            aria-label="Scroll to top"
+          >
+            <ArrowUp size={24} />
+          </button>
+        </div>
       )}
     </>
   );
