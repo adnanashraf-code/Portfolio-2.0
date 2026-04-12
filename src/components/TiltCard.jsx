@@ -6,7 +6,7 @@ const TiltCard = ({ children, className = "", style = {}, maxTilt = 15, scale = 
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseMove = (e) => {
-    if (!cardRef.current) return;
+    if (!cardRef.current || window.innerWidth < 1024) return;
 
     const rect = cardRef.current.getBoundingClientRect();
     const width = rect.width;

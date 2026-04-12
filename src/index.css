@@ -82,12 +82,12 @@ body {
 
 .glow-orb {
   position: fixed;
-  width: 500px;
-  height: 500px;
+  width: 400px; /* Reduced from 500px */
+  height: 400px;
   border-radius: 50%;
-  filter: blur(150px);
+  filter: blur(100px); /* Reduced from 150px */
   z-index: -2;
-  opacity: 0.3;
+  opacity: 0.25; /* Slightly less opaque */
   animation: orb-float 20s infinite alternate ease-in-out;
 }
 
@@ -812,6 +812,7 @@ main {
   z-index: 0;
   animation: rotate-svg 45s linear infinite;
   opacity: 0.5;
+  will-change: transform;
 }
 
 @keyframes rotate-svg {
@@ -855,8 +856,9 @@ main {
   height: 480px; /* Scaled down from 540px */
   border-radius: 40px;
   border: 1px solid var(--glass-border);
-  background: rgba(17, 24, 39, 0.5);
-  backdrop-filter: blur(20px);
+  background: rgba(17, 24, 39, 0.4); /* Slightly more transparent */
+  backdrop-filter: blur(12px); /* Optimized from 20px */
+  -webkit-backdrop-filter: blur(12px);
   padding: 15px;
   box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.7);
   transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -1440,6 +1442,13 @@ textarea:focus {
     padding-top: 140px; /* Increased further to ensure H1 doesn't go under fixed navbar */
   }
 
+  .hero-visual {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
   .hero-text {
     margin-top: 0; /* Resetting desktop negative margin for mobile */
   }
@@ -1493,16 +1502,16 @@ textarea:focus {
     gap: 8px;
   }
   .floating-badge.vibe-coder {
-    left: -10%;
+    left: -5%;
   }
   .floating-badge.creative-mind {
-    right: -10%;
+    right: -5%;
   }
   .floating-badge.frontend-design {
-    left: -10%;
+    left: -5%;
   }
   .floating-badge.ai-learner {
-    right: -10%;
+    right: -5%;
   }
 
   .hero-visual-svg-bg {
@@ -1518,6 +1527,24 @@ textarea:focus {
     font-size: 2.2rem;
     white-space: normal;
     letter-spacing: 4px;
+  }
+
+  /* Disable Card Hover Animations on Mobile */
+  .project-card-custom:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  
+  .contact-card-custom:hover::after {
+    display: none !important;
+  }
+
+  .skills-card-intense:hover {
+    box-shadow: none !important;
+  }
+
+  body {
+    cursor: auto !important;
   }
 }
 
@@ -1554,7 +1581,7 @@ textarea:focus {
   justify-content: center;
   align-items: center;
   z-index: 10000;
-  transition: transform 1s cubic-bezier(0.85, 0, 0.15, 1);
+  transition: transform 0.6s cubic-bezier(0.85, 0, 0.15, 1); /* Sped up from 1s */
 }
 
 .loader-overlay.exit {
@@ -1914,7 +1941,7 @@ section {
   content: "";
   position: absolute;
   inset: -2px;
-  background: linear-gradient(90deg, var(--primary-cyan), var(--primary-gold), var(--primary-cyan));
+  background: linear-gradient(90deg, transparent, var(--primary-cyan), #6366f1, transparent);
   background-size: 200% 100%;
   animation: border-flow 2s linear infinite;
   z-index: -2;

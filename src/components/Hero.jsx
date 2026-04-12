@@ -74,6 +74,7 @@ function HeroVisual({ mousePos }) {
           alt="Adnan Ashraf - Frontend Developer"
           className="hero-profile-img"
           loading="eager"
+          fetchpriority="high"
           width="360"
           height="480"
         />
