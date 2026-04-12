@@ -1513,6 +1513,12 @@ textarea:focus {
   .word {
     font-size: 1.5rem;
   }
+
+  .loader-name {
+    font-size: 2.2rem;
+    white-space: normal;
+    letter-spacing: 4px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1528,6 +1534,14 @@ textarea:focus {
 
   .word {
     font-size: 1.2rem;
+  }
+
+  .loader-name {
+    font-size: 1.4rem;
+    white-space: normal !important;
+    letter-spacing: 1px;
+    word-break: break-word;
+    max-width: 90vw;
   }
 }
 
