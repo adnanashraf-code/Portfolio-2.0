@@ -82,9 +82,9 @@ function Projects() {
                   transition: "0.3s",
                 }}
                 onMouseOver={(e) =>
-                  (e.target.style.color = "var(--primary-cyan)")
+                  (e.currentTarget.style.color = "var(--primary-cyan)")
                 }
-                onMouseOut={(e) => (e.target.style.color = "var(--text-light)")}
+                onMouseOut={(e) => (e.currentTarget.style.color = "var(--text-light)")}
               >
                 <Github size={18} /> GitHub
               </a>
@@ -101,9 +101,9 @@ function Projects() {
                   transition: "0.3s",
                 }}
                 onMouseOver={(e) =>
-                  (e.target.style.color = "var(--primary-gold)")
+                  (e.currentTarget.style.color = "var(--primary-gold)")
                 }
-                onMouseOut={(e) => (e.target.style.color = "var(--text-light)")}
+                onMouseOut={(e) => (e.currentTarget.style.color = "var(--text-light)")}
               >
                 <ExternalLink size={18} /> Live Demo
               </a>

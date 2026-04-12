@@ -7,7 +7,7 @@ function Navbar() {
   return (
     <nav className="navbar-main">
       <div className="container nav-container">
-        <a href="#" className="logo">Adnan</a>
+        <a href="#" className="logo">ADNAN</a>
         
         {/* Desktop Links */}
         <ul className={`nav-links ${isOpen ? 'active' : ''}`}>

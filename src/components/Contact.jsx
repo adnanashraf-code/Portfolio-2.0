@@ -36,8 +36,8 @@ function Contact() {
         LET'S <span className="highlight">CONNECT</span>
       </h2>
 
-      <div className="grid-2">
-        <div className="reveal">
+      <div className="grid-2" style={{ alignItems: "stretch" }}>
+        <div className="glass reveal" style={{ padding: "3rem", display: "flex", flexDirection: "column", justifyContent: "center" }}>
           <p style={{ fontSize: "1.4rem", marginBottom: "2.5rem" }}>
             I'm always open to discussing new projects, creative ideas, or
             opportunities. Whether you have a question or just want to say hi,
@@ -67,6 +67,7 @@ function Contact() {
                   alignItems: "center",
                   justifyContent: "center",
                   color: "var(--primary-cyan)",
+                  background: "rgba(255,255,255,0.03)"
                 }}
               >
                 <Mail size={24} />
@@ -103,6 +104,7 @@ function Contact() {
                   justifyContent: "center",
                   color: "var(--text-light)",
                   transition: "0.3s ease",
+                  background: "rgba(255,255,255,0.03)"
                 }}
               >
                 <Twitter size={24} />
@@ -122,6 +124,7 @@ function Contact() {
                   justifyContent: "center",
                   color: "var(--text-light)",
                   transition: "0.3s ease",
+                  background: "rgba(255,255,255,0.03)"
                 }}
               >
                 <Github size={24} />
@@ -141,6 +144,7 @@ function Contact() {
                   justifyContent: "center",
                   color: "var(--text-light)",
                   transition: "0.3s ease",
+                  background: "rgba(255,255,255,0.03)"
                 }}
               >
                 <Linkedin size={24} />
@@ -149,7 +153,7 @@ function Contact() {
           </div>
         </div>
 
-        <div className="glass reveal" style={{ padding: "3rem", position: 'relative' }}>
+        <div className="glass reveal" style={{ padding: "3rem", display: "flex", flexDirection: "column" }}>
           {isSent ? (
             <div style={{
               height: '100%',
@@ -165,7 +169,7 @@ function Contact() {
               <p>Thank you for reaching out. I'll get back to you soon.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
               <div
                 style={{
                   display: "grid",
@@ -243,6 +247,7 @@ function Contact() {
                   fontSize: "1rem",
                   marginBottom: "2rem",
                   resize: "none",
+                  flexGrow: 1
                 }}
               ></textarea>
 
