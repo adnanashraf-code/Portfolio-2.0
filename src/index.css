@@ -539,10 +539,10 @@ main {
 }
 
 .hero-text h1 {
-  font-size: 5rem;
+  font-size: 6rem;
   max-width: 500px;
   margin-bottom: 1rem;
-  letter-spacing: 3px;
+  letter-spacing: 5px;
   line-height: 1;
   font-family: "Bebas Neue", sans-serif;
   opacity: 0;
@@ -1364,7 +1364,7 @@ textarea:focus {
     grid-template-columns: 1fr;
     text-align: center;
     gap: 3rem;
-    padding-top: 100px; /* Increased to avoid overlapping with navbar */
+    padding-top: 140px; /* Increased further to ensure H1 doesn't go under fixed navbar */
   }
 
   .hero-text {
@@ -1383,6 +1383,7 @@ textarea:focus {
   }
   .hero-text h1 {
     font-size: 3.5rem;
+    margin-top: 2rem;
   }
   .hero-stats {
     justify-content: center;
@@ -1435,6 +1436,10 @@ textarea:focus {
     width: 450px;
     height: 450px;
   }
+
+  .word {
+    font-size: 1.5rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1446,6 +1451,10 @@ textarea:focus {
   }
   .stat-num {
     font-size: 1.8rem;
+  }
+
+  .word {
+    font-size: 1.2rem;
   }
 }
 

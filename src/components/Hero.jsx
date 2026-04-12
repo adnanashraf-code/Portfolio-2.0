@@ -35,9 +35,32 @@ function HeroVisual({ mousePos }) {
       {/* Rotating Background SVG */}
       <div className="hero-visual-svg-bg">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="100" cy="100" r="75" fill="none" stroke="rgba(6, 181, 212, 0.89)" strokeWidth="0.5" strokeDasharray="7,5" />
-          <circle cx="100" cy="100" r="90" fill="none" stroke="rgba(249, 245, 245, 0.26)" strokeWidth="1" />
-          <circle cx="100" cy="100" r="105" fill="none" stroke="rgba(11, 181, 211, 0.1)" strokeWidth="1" strokeDasharray="2,2" />
+          <circle
+            cx="100"
+            cy="100"
+            r="75"
+            fill="none"
+            stroke="rgba(6, 181, 212, 0.89)"
+            strokeWidth="0.5"
+            strokeDasharray="7,5"
+          />
+          <circle
+            cx="100"
+            cy="100"
+            r="90"
+            fill="none"
+            stroke="rgba(249, 245, 245, 0.26)"
+            strokeWidth="1"
+          />
+          <circle
+            cx="100"
+            cy="100"
+            r="105"
+            fill="none"
+            stroke="rgba(11, 181, 211, 0.1)"
+            strokeWidth="1"
+            strokeDasharray="2,2"
+          />
         </svg>
       </div>
 
@@ -46,10 +69,10 @@ function HeroVisual({ mousePos }) {
 
       {/* Profile Image Wrapper */}
       <div className="hero-profile-wrapper">
-        <img 
-          src="/hero.png" 
-          alt="Adnan Ashraf - Frontend Developer" 
-          className="hero-profile-img" 
+        <img
+          src="/hero.png"
+          alt="Adnan Ashraf - Frontend Developer"
+          className="hero-profile-img"
           loading="eager"
           width="360"
           height="480"
@@ -99,8 +122,8 @@ function Hero() {
           INTERFACES
         </h1>
         <p>
-          I craft high-performance, pixel-precise interfaces that transform
-          complex ideas into intuitive digital experiences.
+          Focused on building polished, high-performance web applications with
+          clean architecture and user-centric design.
         </p>
 
         <div className="hero-stats">
@@ -127,7 +150,7 @@ function Hero() {
               display: "inline-flex",
               alignItems: "center",
               gap: "0.8rem",
-              whiteSpace: "nowrap"
+              whiteSpace: "nowrap",
             }}
           >
             <Briefcase size={20} /> View My Work
@@ -144,7 +167,7 @@ function Hero() {
               gap: "0.8rem",
               background: "rgba(255,255,255,0.03)",
               borderColor: "var(--glass-border)",
-              whiteSpace: "nowrap"
+              whiteSpace: "nowrap",
             }}
           >
             <Code2 size={20} /> GitHub

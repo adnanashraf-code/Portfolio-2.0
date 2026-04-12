@@ -53,7 +53,7 @@ function About() {
               I bridge the gap between engineering and design — writing clean, performant code 
               while crafting interfaces that feel alive. Every pixel has a purpose.
             </p>
-            <a href="/resume.pdf" target="_blank" className="resume-link">
+            <a href="/My%20resume%203.pdf" download="Adnan_Ashraf_Resume.pdf" target="_blank" className="resume-link">
               Download Resume <ArrowUpRight size={20} />
             </a>
           </div>
