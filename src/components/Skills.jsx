@@ -21,7 +21,7 @@ function Skills() {
 
       <div className="skills-grid-container" style={{ marginTop: "1.5rem" }}>
         {/* Column 01: Core Competencies (Bars) */}
-        <TiltCard className="skill-category-card glass">
+        <TiltCard className="skill-category-card glass skills-card-intense" maxTilt={25} scale={1.1}>
           <div className="cat-header">
             <div className="cat-info">
               <span className="cat-num-tag">01</span>
@@ -60,7 +60,7 @@ function Skills() {
         </TiltCard>
 
         {/* Column 02: Web Dev (Decorative Description) */}
-        <TiltCard className="skill-category-card glass">
+        <TiltCard className="skill-category-card glass skills-card-intense" maxTilt={25} scale={1.1}>
           <div className="cat-header">
             <div className="cat-info">
               <span className="cat-num-tag">02</span>
@@ -85,7 +85,7 @@ function Skills() {
         </TiltCard>
 
         {/* Column 03: Tools (Decorative Description) */}
-        <TiltCard className="skill-category-card glass">
+        <TiltCard className="skill-category-card glass skills-card-intense" maxTilt={25} scale={1.1}>
           <div className="cat-header">
             <div className="cat-info">
               <span className="cat-num-tag">03</span>

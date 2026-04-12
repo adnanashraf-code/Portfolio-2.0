@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;700;900&family=Fredoka:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;700;900&family=Fredoka:wght@700&family=Syne:wght@800&family=Outfit:wght@800&display=swap");
 
 :root {
   --bg-dark: #030712;
@@ -1112,14 +1112,6 @@ textarea:focus {
   gap: 1.5rem;
 }
 
-.about-breadcrumb::after {
-  content: "";
-  width: 60px;
-  height: 1px;
-  background: var(--primary-cyan);
-  opacity: 0.4;
-}
-
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
@@ -1558,17 +1550,23 @@ textarea:focus {
 .loader-content {
   text-align: center;
   width: 100%;
-  max-width: 400px;
+  max-width: 100%; /* Removing 400px restriction */
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .loader-name {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 3.5rem; /* Reduced from 6rem */
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
+  font-size: 2.5rem; 
   letter-spacing: 4px;
   color: #fff;
   margin-bottom: 2rem;
   animation: fadeUpIn 0.8s ease-out;
-  white-space: nowrap; /* Keep on one line */
+  text-align: center;
+  white-space: nowrap;
 }
 
 .loader-name .dot {
@@ -1577,6 +1575,7 @@ textarea:focus {
 
 .loader-bar-container {
   width: 100%;
+  max-width: 300px; /* Reverting to original smaller size */
   height: 2px;
   background: rgba(255, 255, 255, 0.1);
   margin-bottom: 1rem;
@@ -1866,6 +1865,58 @@ section {
 
 .cat-description-content {
   margin-top: 1rem;
+}
+
+/* Special Animations for Project and Contact Sections */
+
+/* Project Floating Lift */
+.project-card-custom {
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.4s ease, box-shadow 0.4s ease !important;
+}
+
+.project-card-custom:hover {
+  transform: translateY(-15px) scale(1.02) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(6, 182, 212, 0.2) !important;
+  border-color: var(--primary-cyan) !important;
+}
+
+.project-card-custom::before {
+  background: radial-gradient(circle at center, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
+  animation: project-pulse 4s infinite alternate;
+}
+
+@keyframes project-pulse {
+  0% { opacity: 0.3; transform: scale(1); }
+  100% { opacity: 0.6; transform: scale(1.2); }
+}
+
+/* Contact Border Glow Animation */
+.contact-card-custom {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-card-custom:hover::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(90deg, var(--primary-cyan), var(--primary-gold), var(--primary-cyan));
+  background-size: 200% 100%;
+  animation: border-flow 2s linear infinite;
+  z-index: -2;
+  border-radius: inherit;
+  filter: blur(8px);
+  opacity: 0.5;
+}
+
+@keyframes border-flow {
+  from { background-position: 0% 0%; }
+  to { background-position: 200% 0%; }
+}
+
+/* More intense tilt for Skills */
+.skills-card-intense:hover {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
 }
 
 .cat-desc-p {

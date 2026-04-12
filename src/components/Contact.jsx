@@ -37,7 +37,7 @@ function Contact() {
       </h2>
 
       <div className="grid-2" style={{ alignItems: "stretch" }}>
-        <div className="glass reveal" style={{ padding: "3rem", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+        <div className="glass reveal contact-card-custom" style={{ padding: "3rem", display: "flex", flexDirection: "column", justifyContent: "center" }}>
           <p style={{ fontSize: "1.4rem", marginBottom: "2.5rem" }}>
             I'm always open to discussing new projects, creative ideas, or
             opportunities. Whether you have a question or just want to say hi,
@@ -153,7 +153,7 @@ function Contact() {
           </div>
         </div>
 
-        <div className="glass reveal" style={{ padding: "3rem", display: "flex", flexDirection: "column" }}>
+        <div className="glass reveal contact-card-custom" style={{ padding: "3rem", display: "flex", flexDirection: "column" }}>
           {isSent ? (
             <div style={{
               height: '100%',

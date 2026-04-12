@@ -29,11 +29,11 @@ function About() {
             />
             {/* Overlay Info Card */}
             <div className="profile-info-tag">
-               <div className="tag-name">Adnan Ashraf</div>
-               <div className="tag-role">
-                 <span className="tag-dot"></span>
-                 FRONTEND DEVELOPER
-               </div>
+              <div className="tag-name">Adnan Ashraf</div>
+              <div className="tag-role">
+                <span className="tag-dot"></span>
+                FRONTEND DEVELOPER
+              </div>
             </div>
           </div>
         </div>
@@ -41,19 +41,27 @@ function About() {
         {/* Right: Content */}
         <div className="about-content">
           <h2 className="about-main-title reveal">
-            Engineering <span className="text-secondary">precision</span>, meets thoughtful design.
+            Engineering <span className="text-secondary">precision</span>, meets
+            thoughtful design.
           </h2>
 
           <div className="about-description reveal">
             <p>
-              I'm <span className="highlight-text">Adnan Ashraf</span>, a full-stack developer obsessed with 
-              building digital experiences that are both technically rigorous and visually stunning.
+              I'm <span className="highlight-text">Adnan Ashraf</span>, a
+              full-stack developer obsessed with building digital experiences
+              that are both technically rigorous and visually stunning.
             </p>
             <p>
-              I bridge the gap between engineering and design — writing clean, performant code 
-              while crafting interfaces that feel alive. Every pixel has a purpose.
+              I bridge the gap between engineering and design — writing clean,
+              performant code while crafting interfaces that feel alive. Every
+              pixel has a purpose.
             </p>
-            <a href="/My%20resume%203.pdf" download="Adnan_Ashraf_Resume.pdf" target="_blank" className="resume-link">
+            <a
+              href="/My%20resume%203.pdf"
+              download="Adnan_Ashraf_Resume.pdf"
+              target="_blank"
+              className="resume-link"
+            >
               Download Resume <ArrowUpRight size={20} />
             </a>
           </div>
@@ -68,13 +76,17 @@ function About() {
               </div>
               <div className="terminal-title">education.json</div>
             </div>
-            
+
             <div className="terminal-body">
               <div className="edu-group">
                 <div className="edu-label">GRADUATION</div>
                 <div className="edu-item">
-                  <span className="edu-title">Bachelor of Computer Applications</span>
-                  <span className="edu-desc">Sambalpur University • 2022 - 2025</span>
+                  <span className="edu-title">
+                    Bachelor of Computer Applications
+                  </span>
+                  <span className="edu-desc">
+                    Sambalpur University • 2022 - 2025
+                  </span>
                 </div>
               </div>
 
@@ -82,7 +94,9 @@ function About() {
                 <div className="edu-label">SCHOOLING</div>
                 <div className="edu-item">
                   <span className="edu-title">Senior Secondary Education</span>
-                  <span className="edu-desc">Sri Aurobindo School, Rourkela • 2019 - 2021</span>
+                  <span className="edu-desc">
+                    Sri Aurobindo School, Rourkela • 2019 - 2021
+                  </span>
                 </div>
               </div>
             </div>

@@ -23,7 +23,7 @@ const Loader = ({ onComplete }) => {
   return (
     <div className={`loader-overlay ${isExiting ? "exit" : ""}`}>
       <div className="loader-content">
-        <h1 className="loader-name">HELLO I AM ADNAN</h1>
+        <h1 className="loader-name">HELLO I AM ADNAN.</h1>
         <div className="loader-bar-container">
           <div className="loader-bar" style={{ width: `${progress}%` }}></div>
         </div>

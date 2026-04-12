@@ -36,7 +36,7 @@ function Projects() {
         {projects.map((proj, idx) => (
           <div
             key={idx}
-            className="card glass reveal"
+            className="card glass reveal project-card-custom"
             style={{ display: "flex", flexDirection: "column" }}
           >
             <h3 className="card-title">{proj.title}</h3>
