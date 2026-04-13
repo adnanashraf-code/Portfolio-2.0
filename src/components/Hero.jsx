@@ -147,12 +147,6 @@ function Hero() {
             href="#projects"
             className="btn-primary"
             aria-label="View portfolio projects"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.8rem",
-              whiteSpace: "nowrap",
-            }}
           >
             <Briefcase size={20} /> View My Work
           </a>
@@ -160,16 +154,8 @@ function Hero() {
             href="https://github.com/adnanashraf-code"
             target="_blank"
             rel="noreferrer"
-            className="btn-primary"
+            className="btn-primary btn-secondary"
             aria-label="Visit my GitHub profile"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.8rem",
-              background: "rgba(255,255,255,0.03)",
-              borderColor: "var(--glass-border)",
-              whiteSpace: "nowrap",
-            }}
           >
             <Code2 size={20} /> GitHub
           </a>
