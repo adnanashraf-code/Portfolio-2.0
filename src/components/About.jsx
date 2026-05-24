@@ -57,7 +57,7 @@ function About() {
               pixel has a purpose.
             </p>
             <a
-              href="/My%20resume%203.pdf"
+              href="/My%20resume.pdf"
               download="Adnan_Ashraf_Resume.pdf"
               target="_blank"
               className="resume-link"
