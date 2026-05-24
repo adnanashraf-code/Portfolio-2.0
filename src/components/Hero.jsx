@@ -82,7 +82,7 @@ function HeroVisual({ mousePos }) {
         {/* Floating Badges */}
         <div className="floating-badge vibe-coder">
           <Zap size={16} />
-          <span>VIBE CODER</span>
+          <span>CODE ARCHITECT</span>
         </div>
 
         <div className="floating-badge creative-mind">
