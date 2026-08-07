@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { ArrowUp } from "lucide-react";
+import React, { useEffect, useState, useRef } from "react";
+import Lenis from "lenis";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -12,21 +12,57 @@ import CustomCursor from "./components/CustomCursor";
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [showScrollTop, setShowScrollTop] = useState(false);
+  const progressRef = useRef(null);
+  const sparkRef = useRef(null);
 
+  // Initialize Lenis Smooth Scroll & Synchronized Progress Bar
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScroll = window.scrollY;
+    if (loading) return;
+
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      direction: "vertical",
+      gestureDirection: "vertical",
+      smooth: true,
+      mouseMultiplier: 1,
+      smoothTouch: false,
+    });
+
+    let rafId;
+
+    const updateProgress = () => {
+      const currentScroll = window.scrollY || document.documentElement.scrollTop;
       const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const percentage = (currentScroll / totalHeight) * 100;
-      setScrollProgress(percentage);
-      setShowScrollTop(window.scrollY > 400);
+      const progress = totalHeight > 0 ? Math.min(Math.max(currentScroll / totalHeight, 0), 1) : 0;
+      
+      if (progressRef.current) {
+        progressRef.current.style.transform = `scaleX(${progress})`;
+      }
+      if (sparkRef.current) {
+        sparkRef.current.style.left = `${progress * 100}%`;
+      }
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    lenis.on("scroll", updateProgress);
+
+    function raf(time) {
+      lenis.raf(time);
+      updateProgress();
+      rafId = requestAnimationFrame(raf);
+    }
+
+    rafId = requestAnimationFrame(raf);
+    updateProgress();
+
+    window.addEventListener("resize", updateProgress, { passive: true });
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener("resize", updateProgress);
+      lenis.destroy();
+    };
+  }, [loading]);
 
   useEffect(() => {
     if (loading) return;
@@ -52,20 +88,21 @@ function App() {
       {!loading && (
         <div className="app-main-wrapper">
           <CustomCursor />
-          
+
           {/* Background Elements */}
           <div className="bg-grid" aria-hidden="true"></div>
           <div className="glow-orb cyan" aria-hidden="true"></div>
 
           {/* Scroll Progress Bar */}
-          <div 
-            className="scroll-progress-bar" 
-            style={{ width: `${scrollProgress}%` }}
-            role="progressbar"
-            aria-valuenow={scrollProgress}
-            aria-valuemin="0"
-            aria-valuemax="100"
-          ></div>
+          <div className="scroll-progress-track" aria-hidden="true">
+            <div
+              ref={progressRef}
+              className="scroll-progress-bar"
+              role="progressbar"
+              aria-label="Page scroll progress"
+            />
+            <div ref={sparkRef} className="scroll-progress-spark" />
+          </div>
 
           <Navbar />
 
@@ -81,32 +118,22 @@ function App() {
           <footer className="footer-modern">
             <div className="container footer-content">
               <div className="footer-left">
-                <span className="footer-logo">ADNAN<span>.</span></span>
-                <span className="copyright">© 2026 Adnan Ashraf. Built for performance.</span>
+                <span className="footer-logo">
+                  ADNAN<span>.</span>
+                </span>
+                <span className="footer-divider" aria-hidden="true">|</span>
+                <span className="footer-copyright">
+                  © 2026 Adnan Ashraf. All rights reserved.
+                </span>
               </div>
-              
-              <nav className="footer-nav" aria-label="Footer Navigation">
-                <a href="#home">HOME</a>
-                <a href="#about">ABOUT</a>
-                <a href="#skills">SKILLS</a>
-                <a href="#projects">PROJECTS</a>
-                <a href="#contact">CONTACT</a>
-              </nav>
 
               <div className="footer-right">
-                <p>Designed & Developed with <span className="heart" aria-label="heart">❤</span></p>
+                <span className="footer-craft">
+                  Crafted with precision & passion
+                </span>
               </div>
             </div>
           </footer>
-
-          {/* Scroll To Top Button */}
-          <button 
-            className={`scroll-to-top ${showScrollTop ? 'visible' : ''}`}
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            aria-label="Scroll to top"
-          >
-            <ArrowUp size={24} />
-          </button>
         </div>
       )}
     </>

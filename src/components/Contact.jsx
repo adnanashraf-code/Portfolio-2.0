@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Mail, Github, Linkedin, Send, CheckCircle, Twitter } from "lucide-react";
+import { Mail, Github, Linkedin, Send, CheckCircle2, Twitter, Sparkles, ArrowUpRight } from "lucide-react";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -9,20 +9,21 @@ function Contact() {
     message: ""
   });
   const [isSent, setIsSent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Basic Validation
     if (!formData.name || !formData.email || !formData.message) {
-      alert("Please fill all required fields.");
       return;
     }
     
-    console.log("Form Data Submitted:", formData);
-    // Simulate API Call
-    setIsSent(true);
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    setTimeout(() => setIsSent(false), 5000);
+    setIsSubmitting(true);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSent(true);
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      setTimeout(() => setIsSent(false), 5000);
+    }, 800);
   };
 
   const handleChange = (e) => {
@@ -30,239 +31,272 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="container reveal">
-      <span className="section-label">CONTACT</span>
+    <section id="contact" className="container reveal" style={{ position: "relative" }}>
+      <span className="section-label">GET IN TOUCH</span>
       <h2 className="section-title">
-        LET'S <span className="highlight">CONNECT</span>
+        LET'S <span className="highlight">CONNECT.</span>
       </h2>
 
-      <div className="grid-2" style={{ alignItems: "stretch" }}>
-        <div className="glass reveal contact-card-custom" style={{ padding: "3rem", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-          <p style={{ fontSize: "1.4rem", marginBottom: "2.5rem" }}>
-            I'm always open to discussing new projects, creative ideas, or
-            opportunities. Whether you have a question or just want to say hi,
-            my inbox is always open.
-          </p>
+      <div className="grid-2" style={{ gap: "1.5rem", alignItems: "stretch" }}>
+        {/* Left Column: Direct Info & Social Pills */}
+        <div
+          className="card glass contact-card-enhanced"
+          style={{
+            padding: "1.8rem",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            borderRadius: "20px",
+          }}
+        >
+          <div>
+            <h3
+              style={{
+                fontSize: "1.5rem",
+                fontWeight: "800",
+                color: "#fff",
+                lineHeight: "1.25",
+                marginBottom: "0.8rem",
+              }}
+            >
+              Have a project in mind? Let's build something extraordinary.
+            </h3>
 
-          <div
-            style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}
-          >
+            <p style={{ fontSize: "0.9rem", color: "var(--text-muted)", lineHeight: "1.6", marginBottom: "1.5rem" }}>
+              Whether you want to discuss a new application, ask about my work, or explore potential collaborations — I'd love to hear from you.
+            </p>
+          </div>
+
+          <div>
+            {/* Email Card Button */}
             <a
               href="mailto:adnanashraf7205@gmail.com"
+              className="contact-email-box"
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: "1.5rem",
+                gap: "1rem",
+                padding: "1rem",
+                borderRadius: "14px",
+                background: "rgba(255, 255, 255, 0.03)",
+                border: "1px solid var(--glass-border)",
                 textDecoration: "none",
-                color: "inherit",
+                color: "#fff",
+                marginBottom: "1.2rem",
+                transition: "all 0.3s ease",
               }}
             >
               <div
-                className="glass"
                 style={{
-                  width: "60px",
-                  height: "60px",
-                  borderRadius: "15px",
+                  width: "42px",
+                  height: "42px",
+                  borderRadius: "10px",
+                  background: "rgba(6, 182, 212, 0.15)",
+                  border: "1px solid rgba(6, 182, 212, 0.3)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   color: "var(--primary-cyan)",
-                  background: "rgba(255,255,255,0.03)"
+                  flexShrink: 0,
                 }}
               >
-                <Mail size={24} />
+                <Mail size={20} />
               </div>
-              <div>
+              <div style={{ flexGrow: 1 }}>
                 <span
                   style={{
-                    fontSize: "0.9rem",
+                    fontSize: "0.7rem",
                     color: "var(--text-muted)",
                     display: "block",
+                    textTransform: "uppercase",
+                    letterSpacing: "1px",
+                    fontFamily: "var(--font-mono)",
                   }}
                 >
-                  Email Me
+                  Direct Email
                 </span>
-                <span style={{ fontSize: "1.2rem", fontWeight: "600" }}>
+                <span style={{ fontSize: "0.95rem", fontWeight: "700", color: "#fff" }}>
                   adnanashraf7205@gmail.com
                 </span>
               </div>
+              <ArrowUpRight size={16} style={{ color: "var(--primary-cyan)" }} />
             </a>
 
-            <div style={{ display: "flex", gap: "1.5rem", marginTop: "1rem" }}>
-              <a
-                href="https://x.com/it_adnan83"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="glass"
-                aria-label="X (Twitter) Profile"
-                style={{
-                  width: "60px",
-                  height: "60px",
-                  borderRadius: "15px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "var(--text-light)",
-                  transition: "0.3s ease",
-                  background: "rgba(255,255,255,0.03)"
-                }}
-              >
-                <Twitter size={24} />
-              </a>
-              <a
-                href="https://github.com/adnanashraf-code"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="glass"
-                aria-label="GitHub Profile"
-                style={{
-                  width: "60px",
-                  height: "60px",
-                  borderRadius: "15px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "var(--text-light)",
-                  transition: "0.3s ease",
-                  background: "rgba(255,255,255,0.03)"
-                }}
-              >
-                <Github size={24} />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/adnanashraf20/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="glass"
-                aria-label="LinkedIn Profile"
-                style={{
-                  width: "60px",
-                  height: "60px",
-                  borderRadius: "15px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "var(--text-light)",
-                  transition: "0.3s ease",
-                  background: "rgba(255,255,255,0.03)"
-                }}
-              >
-                <Linkedin size={24} />
-              </a>
+            {/* Social Pills */}
+            <div style={{ display: "flex", gap: "0.8rem" }}>
+              {[
+                { name: "Twitter / X", icon: Twitter, url: "https://x.com/it_adnan83" },
+                { name: "GitHub", icon: Github, url: "https://github.com/adnanashraf-code" },
+                { name: "LinkedIn", icon: Linkedin, url: "https://www.linkedin.com/in/adnanashraf20/" },
+              ].map((soc, sIdx) => {
+                const SocIcon = soc.icon;
+                return (
+                  <a
+                    key={sIdx}
+                    href={soc.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={soc.name}
+                    className="contact-social-pill"
+                    style={{
+                      flex: 1,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: "0.5rem",
+                      padding: "0.7rem",
+                      borderRadius: "12px",
+                      background: "rgba(255, 255, 255, 0.03)",
+                      border: "1px solid var(--glass-border)",
+                      color: "var(--text-light)",
+                      textDecoration: "none",
+                      fontSize: "0.8rem",
+                      fontFamily: "var(--font-mono)",
+                      transition: "all 0.3s ease",
+                    }}
+                  >
+                    <SocIcon size={16} />
+                    <span>{soc.name.split(" ")[0]}</span>
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
 
-        <div className="glass reveal contact-card-custom" style={{ padding: "3rem", display: "flex", flexDirection: "column" }}>
+        {/* Right Column: Interactive Form */}
+        <div
+          className="card glass contact-card-enhanced"
+          style={{
+            padding: "1.8rem",
+            display: "flex",
+            flexDirection: "column",
+            borderRadius: "20px",
+          }}
+        >
           {isSent ? (
-            <div style={{
-              height: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '1rem',
-              textAlign: 'center'
-            }}>
-              <CheckCircle size={60} color="#22c55e" />
-              <h3>Message Sent Successfully!</h3>
-              <p>Thank you for reaching out. I'll get back to you soon.</p>
+            <div
+              style={{
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "1rem",
+                textAlign: "center",
+                padding: "1.5rem 0",
+              }}
+            >
+              <div
+                style={{
+                  width: "65px",
+                  height: "65px",
+                  borderRadius: "50%",
+                  background: "rgba(34, 197, 94, 0.15)",
+                  border: "2px solid #22c55e",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "#22c55e",
+                  boxShadow: "0 0 25px rgba(34, 197, 94, 0.3)",
+                }}
+              >
+                <CheckCircle2 size={35} />
+              </div>
+              <h3 style={{ fontSize: "1.5rem", fontWeight: "800", color: "#fff" }}>
+                Message Received!
+              </h3>
+              <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", maxWidth: "320px" }}>
+                Thank you for reaching out. I've received your message and will respond as quickly as possible.
+              </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+            <form onSubmit={handleSubmit} style={{ height: "100%", display: "flex", flexDirection: "column" }}>
+              <h3 style={{ fontSize: "1.3rem", fontWeight: "800", color: "#fff", marginBottom: "1.2rem" }}>
+                Send a Message <Sparkles size={16} style={{ color: "var(--primary-gold)", display: "inline", marginLeft: "4px" }} />
+              </h3>
+
               <div
                 style={{
                   display: "grid",
                   gridTemplateColumns: "1fr 1fr",
-                  gap: "1.5rem",
-                  marginBottom: "1.5rem",
+                  gap: "1rem",
+                  marginBottom: "1rem",
                 }}
               >
+                <div className="contact-input-wrapper">
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Your Name"
+                    required
+                    className="contact-styled-input"
+                  />
+                </div>
+                <div className="contact-input-wrapper">
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Your Email"
+                    required
+                    className="contact-styled-input"
+                  />
+                </div>
+              </div>
+
+              <div className="contact-input-wrapper" style={{ marginBottom: "1rem" }}>
                 <input
                   type="text"
-                  name="name"
-                  value={formData.name}
+                  name="subject"
+                  value={formData.subject}
                   onChange={handleChange}
-                  placeholder="Name"
-                  required
-                  style={{
-                    background: "rgba(255,255,255,0.03)",
-                    border: "1px solid var(--glass-border)",
-                    padding: "1rem",
-                    borderRadius: "8px",
-                    color: "#fff",
-                    fontSize: "1rem",
-                    marginBottom: 0
-                  }}
-                />
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Email"
-                  required
-                  style={{
-                    background: "rgba(255,255,255,0.03)",
-                    border: "1px solid var(--glass-border)",
-                    padding: "1rem",
-                    borderRadius: "8px",
-                    color: "#fff",
-                    fontSize: "1rem",
-                    marginBottom: 0
-                  }}
+                  placeholder="Subject"
+                  className="contact-styled-input"
                 />
               </div>
-              <input
-                type="text"
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                placeholder="Subject"
-                style={{
-                  width: "100%",
-                  background: "rgba(255,255,255,0.03)",
-                  border: "1px solid var(--glass-border)",
-                  padding: "1rem",
-                  borderRadius: "8px",
-                  color: "#fff",
-                  fontSize: "1rem",
-                  marginBottom: "1.5rem",
-                }}
-              />
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Message"
-                rows="5"
-                required
-                style={{
-                  width: "100%",
-                  background: "rgba(255,255,255,0.03)",
-                  border: "1px solid var(--glass-border)",
-                  padding: "1rem",
-                  borderRadius: "8px",
-                  color: "#fff",
-                  fontSize: "1rem",
-                  marginBottom: "2rem",
-                  resize: "none",
-                  flexGrow: 1
-                }}
-              ></textarea>
+
+              <div className="contact-input-wrapper" style={{ marginBottom: "1.2rem", flexGrow: 1, display: "flex" }}>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Your Message..."
+                  rows="4"
+                  required
+                  className="contact-styled-input"
+                  style={{ resize: "none", flexGrow: 1 }}
+                ></textarea>
+              </div>
 
               <button
                 type="submit"
-                className="btn-primary"
+                disabled={isSubmitting}
+                className="btn-primary contact-send-btn"
                 style={{
                   width: "100%",
+                  padding: "0.8rem",
+                  fontSize: "0.9rem",
+                  fontWeight: "700",
+                  borderRadius: "10px",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  gap: "1rem",
+                  gap: "0.6rem",
+                  cursor: isSubmitting ? "wait" : "pointer",
                 }}
               >
-                <Send size={18} /> Send Message
+                {isSubmitting ? (
+                  <span>Sending...</span>
+                ) : (
+                  <>
+                    <Send size={16} className="send-btn-icon" />
+                    <span>Send Message</span>
+                  </>
+                )}
               </button>
             </form>
           )}

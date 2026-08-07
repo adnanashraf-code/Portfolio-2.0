@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Zap, Palette, Layout, Cpu } from "lucide-react";
 
 function About() {
   return (
@@ -9,30 +9,78 @@ function About() {
       <div className="about-grid">
         {/* Left: Profile Visual */}
         <div className="about-profile-visual">
-          <div className="profile-frame">
-            <div className="frame-corner top-left"></div>
-            <div className="frame-corner top-right"></div>
-            <div className="frame-corner bottom-left"></div>
-            <div className="frame-corner bottom-right"></div>
-            <div className="halo-glow"></div>
-            <img
-              src="/profile.png"
-              alt="Adnan Ashraf Profile Photo"
-              className="profile-img"
-              loading="lazy"
-              width="420"
-              height="525"
-              onError={(e) => {
-                e.target.src =
-                  "https://via.placeholder.com/600x800/030712/06b6d4?text=Adnan+Ashraf";
-              }}
-            />
-            {/* Overlay Info Card */}
-            <div className="profile-info-tag">
-              <div className="tag-name">Adnan Ashraf</div>
-              <div className="tag-role">
-                <span className="tag-dot"></span>
-                FRONTEND DEVELOPER
+          <div className="hero-visual-container">
+            {/* Morphing Name branding */}
+            <div className="hero-branding-morph">
+              <span className="word word-1">ADNAN ASHRAF</span>
+              <span className="word word-2">FRONTEND DEVELOPER</span>
+            </div>
+
+            {/* Rotating Background SVG */}
+            <div className="hero-visual-svg-bg">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <circle
+                  cx="100"
+                  cy="100"
+                  r="75"
+                  fill="none"
+                  stroke="rgba(6, 181, 212, 0.89)"
+                  strokeWidth="0.5"
+                  strokeDasharray="7,5"
+                />
+                <circle
+                  cx="100"
+                  cy="100"
+                  r="90"
+                  fill="none"
+                  stroke="rgba(249, 245, 245, 0.26)"
+                  strokeWidth="1"
+                />
+                <circle
+                  cx="100"
+                  cy="100"
+                  r="105"
+                  fill="none"
+                  stroke="rgba(11, 181, 211, 0.1)"
+                  strokeWidth="1"
+                  strokeDasharray="2,2"
+                />
+              </svg>
+            </div>
+
+            {/* Background Glow */}
+            <div className="hero-bg-glow"></div>
+
+            {/* Profile Image Wrapper */}
+            <div className="hero-profile-wrapper">
+              <img
+                src="/hero.png"
+                alt="Adnan Ashraf - Frontend Developer"
+                className="hero-profile-img"
+                loading="lazy"
+                width="360"
+                height="480"
+              />
+
+              {/* Floating Badges */}
+              <div className="floating-badge vibe-coder">
+                <Zap size={16} />
+                <span>CODE ARCHITECT</span>
+              </div>
+
+              <div className="floating-badge creative-mind">
+                <Palette size={16} />
+                <span>CREATIVE MIND</span>
+              </div>
+
+              <div className="floating-badge frontend-design">
+                <Layout size={16} />
+                <span>FRONTEND DESIGN</span>
+              </div>
+
+              <div className="floating-badge ai-learner highlight">
+                <Cpu size={16} />
+                <span>AI LEARNER</span>
               </div>
             </div>
           </div>
