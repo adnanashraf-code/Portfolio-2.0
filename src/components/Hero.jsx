@@ -1,108 +1,6 @@
 import React, { useState } from "react";
-import { Briefcase, Code2, Zap, Palette, Layout, Cpu } from "lucide-react";
-
-function HeroVisual({ mousePos }) {
-  // Parallax calculations
-  const tx = (mousePos.x - window.innerWidth / 2) / 30;
-  const ty = (mousePos.y - window.innerHeight / 2) / 30;
-
-  return (
-    <div
-      className="hero-visual-container"
-      style={{ transform: `translate(${tx}px, ${ty}px)` }}
-    >
-      {/* Morphing Name branding */}
-      <div className="hero-branding-morph">
-        <span className="word word-1">ADNAN ASHRAF</span>
-        <span className="word word-2">FRONTEND DEVELOPER</span>
-      </div>
-
-      {/* SVG FILTER - Move to more robust values */}
-      {/* SVG FILTER - RESTORED FOR STABLE MORPHING */}
-      <svg style={{ position: "absolute", width: 0, height: 0 }}>
-        <defs>
-          <filter id="threshold">
-            {/* Liquid Threshold Matrix from reference */}
-            <feColorMatrix
-              in="SourceGraphic"
-              type="matrix"
-              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
-            />
-          </filter>
-        </defs>
-      </svg>
-
-      {/* Rotating Background SVG */}
-      <div className="hero-visual-svg-bg">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <circle
-            cx="100"
-            cy="100"
-            r="75"
-            fill="none"
-            stroke="rgba(6, 181, 212, 0.89)"
-            strokeWidth="0.5"
-            strokeDasharray="7,5"
-          />
-          <circle
-            cx="100"
-            cy="100"
-            r="90"
-            fill="none"
-            stroke="rgba(249, 245, 245, 0.26)"
-            strokeWidth="1"
-          />
-          <circle
-            cx="100"
-            cy="100"
-            r="105"
-            fill="none"
-            stroke="rgba(11, 181, 211, 0.1)"
-            strokeWidth="1"
-            strokeDasharray="2,2"
-          />
-        </svg>
-      </div>
-
-      {/* Background Glow */}
-      <div className="hero-bg-glow"></div>
-
-      {/* Profile Image Wrapper */}
-      <div className="hero-profile-wrapper">
-        <img
-          src="/hero.png"
-          alt="Adnan Ashraf - Frontend Developer"
-          className="hero-profile-img"
-          loading="eager"
-          fetchpriority="high"
-          width="360"
-          height="480"
-        />
-
-        {/* Floating Badges */}
-        <div className="floating-badge vibe-coder">
-          <Zap size={16} />
-          <span>CODE ARCHITECT</span>
-        </div>
-
-        <div className="floating-badge creative-mind">
-          <Palette size={16} />
-          <span>CREATIVE MIND</span>
-        </div>
-
-        <div className="floating-badge frontend-design">
-          <Layout size={16} />
-          <span>FRONTEND DESIGN</span>
-        </div>
-
-        <div className="floating-badge ai-learner highlight">
-          <Cpu size={16} />
-          <span>AI LEARNER</span>
-        </div>
-      </div>
-    </div>
-  );
-}
+import { Briefcase, Code2 } from "lucide-react";
+import RotatingSphere from "./RotatingSphere";
 
 function Hero() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -117,7 +15,10 @@ function Hero() {
       className="container hero-content reveal"
       onMouseMove={handleMouseMove}
     >
-      <div className="hero-text">
+      {/* ---------------------------------------------------- */}
+      {/* DESKTOP HERO LAYOUT (visible > 768px)                */}
+      {/* ---------------------------------------------------- */}
+      <div className="desktop-only-element hero-text">
         <h1 className="hero-title">
           CRAFTING <span className="text-gradient">PREMIUM</span> FRONTEND
           INTERFACES
@@ -162,14 +63,82 @@ function Hero() {
         </div>
       </div>
 
-      <div className="hero-visual">
-        <HeroVisual mousePos={mousePos} />
+      {/* 3D Interactive Sphere Visual (Desktop View) */}
+      <div className="hero-visual desktop-only-element">
+        <RotatingSphere />
       </div>
 
-      {/* Animated Scroll Indicator */}
-      <div className="scroll-indicator">
+      <div className="scroll-indicator desktop-only-element">
         <span className="scroll-text">SCROLL</span>
         <div className="scroll-line"></div>
+      </div>
+
+      {/* ---------------------------------------------------- */}
+      {/* MOBILE HERO LAYOUT (visible <= 768px)                */}
+      {/* Matches Reference Image with User Data               */}
+      {/* ---------------------------------------------------- */}
+      <div className="mobile-only-element hero-mobile-wrapper">
+        {/* 1. Status Pill Badges */}
+        <div className="hero-status-badges-mobile">
+          <div className="status-badge-pill green">
+            <span className="live-dot-green">●</span> Available for work
+          </div>
+          <div className="status-badge-pill grey">
+            India • Remote
+          </div>
+        </div>
+
+        {/* 2. Giant All-Caps Bold Heading */}
+        <h1 className="hero-title-mobile">
+          CRAFTING<br />
+          PREMIUM<br />
+          FRONTEND<br />
+          INTERFACES
+        </h1>
+
+        {/* 3. Description with Cyan Highlights */}
+        <p className="hero-description-mobile">
+          Focused on building polished, high-performance web applications with{" "}
+          <span className="text-cyan">clean architecture</span> and{" "}
+          <span className="text-cyan">user-centric design</span>.
+        </p>
+
+        {/* 4. Action Pill Buttons */}
+        <div className="hero-btns-mobile">
+          <a href="#projects" className="btn-cyan-pill">
+            VIEW MY WORK &rarr;
+          </a>
+          <a
+            href="https://github.com/adnanashraf-code"
+            target="_blank"
+            rel="noreferrer"
+            className="btn-dark-pill"
+          >
+            &larr; GITHUB
+          </a>
+        </div>
+
+        {/* 5. Mobile Stats Grid */}
+        <div className="hero-stats-mobile">
+          <div>
+            <span className="stat-num-mobile">3+</span>
+            <span className="stat-label-mobile">YEARS LEARNING</span>
+          </div>
+          <div>
+            <span className="stat-num-mobile">10+</span>
+            <span className="stat-label-mobile">PROJECTS</span>
+          </div>
+          <div className="stat-item-full">
+            <span className="stat-num-mobile">100%</span>
+            <span className="stat-label-mobile">COMMITMENT</span>
+          </div>
+        </div>
+
+        {/* 6. Mobile Scroll Indicator */}
+        <div className="mobile-scroll-indicator">
+          <span className="mobile-scroll-text">SCROLL</span>
+          <div className="mobile-scroll-line"></div>
+        </div>
       </div>
     </section>
   );

@@ -598,7 +598,7 @@ main {
   padding-top: 20px;
   padding-bottom: 40px;
   position: relative;
-  contain: content; /* Isolate layout to prevent CLS */
+  overflow: visible;
 }
 
 .hero-text {
@@ -615,7 +615,7 @@ main {
   opacity: 0;
   transform: translateY(30px);
   animation: staggeredReveal 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-  animation-delay: 1s; /* Trigger after loader starts exit */
+  animation-delay: 1s;
   will-change: transform, opacity;
 }
 
@@ -638,10 +638,151 @@ main {
 }
 
 .hero-visual {
+  width: 100%;
+  height: 520px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: transparent;
+  overflow: visible;
+  border: none;
+  box-shadow: none;
+  margin-top: -60px;
   opacity: 0;
   transform: scale(0.95);
   animation: scaleReveal 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
   animation-delay: 1.2s;
+}
+
+.hero-visual-desktop {
+  display: flex !important;
+}
+
+.hero-visual-mobile {
+  display: none !important;
+}
+
+/* Cyberpunk Mobile Profile Card (Image 1 Style) */
+.cyber-profile-card {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  padding: 8px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cyber-corner {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.cyber-corner.top-left {
+  top: -4px;
+  left: -4px;
+  border-top: 2px solid #00f2fe;
+  border-left: 2px solid #00f2fe;
+}
+
+.cyber-corner.top-right {
+  top: -4px;
+  right: -4px;
+  border-top: 2px solid #00f2fe;
+  border-right: 2px solid #00f2fe;
+}
+
+.cyber-corner.bottom-left {
+  bottom: -4px;
+  left: -4px;
+  border-bottom: 2px solid #00f2fe;
+  border-left: 2px solid #00f2fe;
+}
+
+.cyber-img-container {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 242, 254, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.cyber-profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+
+/* Floating Bottom Right Badge matching Image 1 */
+.cyber-profile-badge {
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  background: rgba(10, 17, 32, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 12px;
+  padding: 10px 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 242, 254, 0.15);
+  z-index: 12;
+  text-align: left;
+}
+
+.cyber-badge-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.cyber-badge-role {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #38bdf8;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.live-dot {
+  color: #22c55e;
+  font-size: 0.6rem;
+  animation: livePulse 2s infinite;
+}
+
+@keyframes livePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.2); }
+}
+
+@media (max-width: 968px) {
+  .hero-visual-desktop {
+    display: none !important;
+  }
+
+  .hero-visual-mobile {
+    display: flex !important;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+    padding: 1.5rem 0 2.5rem;
+  }
 }
 
 @keyframes staggeredReveal {
@@ -862,6 +1003,65 @@ main {
   will-change: transform;
 }
 
+.character-3d-card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  padding: 0 !important;
+  width: 380px !important;
+  height: 520px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+}
+
+.hero-visual-container.three-visual-wrapper {
+  width: 100%;
+  min-height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: visible !important;
+}
+
+.three-canvas-container {
+  width: 100%;
+  max-width: 720px;
+  height: 680px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible !important;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+
+.three-canvas-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  outline: none;
+  border: none;
+  background: transparent !important;
+  overflow: visible !important;
+}
+
+.hero-character-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.75));
+  transition: filter 0.15s ease-out;
+  will-change: transform, filter;
+  pointer-events: none;
+}
+
 .hero-profile-img {
   width: 100%;
   height: 100%;
@@ -904,6 +1104,41 @@ main {
   50% {
     transform: translateY(-15px) translateX(5px);
   }
+}
+
+.floating-badge.tech-pill {
+  padding: 0.65rem 1.2rem;
+  background: rgba(3, 7, 18, 0.85);
+  border: 1px solid rgba(6, 181, 212, 0.35);
+  box-shadow: 0 0 20px rgba(6, 181, 212, 0.2), 0 10px 25px rgba(0, 0, 0, 0.5);
+  letter-spacing: 1.5px;
+  font-size: 0.75rem;
+  color: #00f2fe;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.floating-badge.tech-pill.top-left {
+  top: 8%;
+  left: -8%;
+}
+.floating-badge.tech-pill.top-right {
+  top: 12%;
+  right: -8%;
+  color: #00f2fe;
+  border-color: rgba(0, 242, 254, 0.35);
+}
+.floating-badge.tech-pill.bottom-left {
+  bottom: 12%;
+  left: -6%;
+  color: #fbbf24;
+  border-color: rgba(251, 191, 36, 0.35);
+}
+.floating-badge.tech-pill.bottom-right {
+  bottom: 15%;
+  right: -6%;
+  color: #c084fc;
+  border-color: rgba(192, 132, 252, 0.35);
 }
 
 .floating-badge.vibe-coder {
@@ -1051,13 +1286,14 @@ textarea:focus {
 /* Hero Scroll Indicator */
 .scroll-indicator {
   position: absolute;
-  bottom: 5rem; /* Adjusted up as requested */
-  left: 40%;
+  bottom: 4.2rem;
+  left: 45%;
   transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.6rem !important;
 }
 
 .scroll-text {
@@ -1065,29 +1301,24 @@ textarea:focus {
   font-size: 0.8rem;
   color: var(--text-muted);
   letter-spacing: 4px;
+  text-align: center !important;
+  display: block !important;
+  margin: 0 auto !important;
 }
 
 .scroll-line {
   width: 2px;
-  height: 60px;
+  height: 55px;
   background: linear-gradient(to bottom, var(--primary-cyan), transparent);
   animation: scroll-line-move 2s infinite ease-in-out;
   transform-origin: top;
+  margin: 0 auto !important;
 }
 
 @keyframes scroll-line-move {
-  0% {
-    transform: translateY(-20px);
-    opacity: 0;
-  }
-  50% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(20px);
-    opacity: 0;
-  }
+  0% { transform: scaleY(0); opacity: 0; }
+  50% { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(0); opacity: 0; transform-origin: bottom; }
 }
 
 /* About Section Refined (Modern Profile Style) */
@@ -1444,10 +1675,7 @@ textarea:focus {
   }
 
   .hero-visual {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
+    display: none !important;
   }
 
   .hero-text {
@@ -1465,8 +1693,8 @@ textarea:focus {
     margin: 0 auto;
   }
   .hero-text h1 {
-    font-size: 3.5rem;
-    margin-top: 2rem;
+    font-size: 4.2rem;
+    margin-top: 1rem;
   }
   .hero-stats {
     justify-content: center;
@@ -1484,9 +1712,10 @@ textarea:focus {
     font-size: 2.2rem;
   }
   .hero-text h1 {
-    font-size: 2rem;
-    letter-spacing: -1px;
+    font-size: 3.2rem;
+    letter-spacing: 0px;
     word-break: keep-all;
+    line-height: 1.05;
   }
   .hero-stats {
     flex-wrap: wrap;
@@ -2089,28 +2318,329 @@ html.lenis, html.lenis body {
   }
 }
 
-@media (max-width: 768px) {
-  .desktop-only {
+/* Desktop & Mobile Display Control Classes */
+@media (min-width: 769px) {
+  .mobile-only-element {
     display: none !important;
   }
-  .mobile-only {
+  .desktop-only-element {
     display: block !important;
   }
-  .section-title {
-    font-size: 2.2rem !important;
+  .desktop-about-visual {
+    display: block !important;
   }
-  .hero-text h1 {
-    font-size: 2.2rem !important;
+  .mobile-about-visual {
+    display: none !important;
   }
-  .container {
-    padding: 0 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .desktop-only-element {
+    display: none !important;
   }
-  .hero-profile-wrapper {
-    width: 280px;
-    height: 380px;
+  .mobile-only-element {
+    display: block !important;
   }
-  .floating-badge {
-    transform: scale(0.8);
+
+  /* Full 100vh Left-Aligned Hero Layout matching Reference Image */
+  .hero-content {
+    min-height: 100vh !important;
+    padding-top: 88px !important;
+    padding-bottom: 12px !important;
+    grid-template-columns: 1fr !important;
+    text-align: left !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+  }
+
+  .hero-mobile-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    width: 100% !important;
+    margin-top: 0 !important;
+  }
+
+  /* 1. Status Badges Pill Row */
+  .hero-status-badges-mobile {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-bottom: 1.1rem !important;
+    flex-wrap: wrap !important;
+  }
+
+  .status-badge-pill {
+    font-family: var(--font-mono), monospace !important;
+    font-size: 0.74rem !important;
+    font-weight: 500 !important;
+    padding: 6px 15px !important;
+    border-radius: 50px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    letter-spacing: 0.5px !important;
+  }
+
+  .status-badge-pill.green {
+    background: rgba(6, 78, 59, 0.35) !important;
+    color: #4ade80 !important;
+    border: 1px solid rgba(34, 197, 94, 0.35) !important;
+  }
+
+  .status-badge-pill.grey {
+    background: rgba(15, 23, 42, 0.6) !important;
+    color: #94a3b8 !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  }
+
+  .live-dot-green {
+    color: #22c55e !important;
+    font-size: 0.65rem !important;
+    animation: livePulse 2s infinite !important;
+  }
+
+  /* 2. Giant All-Caps Bold Heading matching Reference Image */
+  .hero-title-mobile {
+    font-family: "Bebas Neue", sans-serif !important;
+    font-size: 4.1rem !important;
+    line-height: 0.92 !important;
+    font-weight: 900 !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    color: #ffffff !important;
+    margin-bottom: 1.1rem !important;
+    text-align: left !important;
+    display: block !important;
+  }
+
+  /* 3. Description Paragraph */
+  .hero-description-mobile {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+    color: #94a3b8 !important;
+    margin-bottom: 1.4rem !important;
+    text-align: left !important;
+    max-width: 100% !important;
+  }
+
+  .text-cyan {
+    color: #00f2fe !important;
+    font-weight: 700 !important;
+  }
+
+  /* 4. Action Pill Buttons matching Reference Image (Horizontal Row) */
+  .hero-btns-mobile {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    flex-wrap: wrap !important;
+    margin-bottom: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .btn-cyan-pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 13px 26px !important;
+    background: #00f2fe !important;
+    color: #030712 !important;
+    font-family: var(--font-mono), monospace !important;
+    font-size: 0.78rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 1.2px !important;
+    text-transform: uppercase !important;
+    border-radius: 50px !important;
+    box-shadow: 0 0 25px rgba(0, 242, 254, 0.4) !important;
+    text-decoration: none !important;
+    border: none !important;
+  }
+
+  .btn-dark-pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 13px 26px !important;
+    background: rgba(3, 7, 18, 0.8) !important;
+    color: #ffffff !important;
+    font-family: var(--font-mono), monospace !important;
+    font-size: 0.78rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 1.2px !important;
+    text-transform: uppercase !important;
+    border-radius: 50px !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    text-decoration: none !important;
+  }
+
+  /* 5. Mobile Stats Grid matching Reference Image */
+  .hero-stats-mobile {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.2rem 1rem !important;
+    width: 100% !important;
+    margin-bottom: 1.1rem !important;
+  }
+
+  .stat-item-full {
+    grid-column: span 2 !important;
+  }
+
+  .stat-num-mobile {
+    font-size: 2.6rem !important;
+    font-weight: 900 !important;
+    color: #ffffff !important;
+    line-height: 1 !important;
+    display: block !important;
+  }
+
+  .stat-label-mobile {
+    font-family: var(--font-mono), monospace !important;
+    font-size: 0.68rem !important;
+    letter-spacing: 1.5px !important;
+    text-transform: uppercase !important;
+    color: #64748b !important;
+    margin-top: 4px !important;
+    display: block !important;
+  }
+
+  /* 6. Mobile Scroll Line Indicator matching Reference Image */
+  .mobile-scroll-indicator {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    width: 100% !important;
+    margin-top: 0.5rem !important;
+    padding-bottom: 5px !important;
+  }
+
+  .mobile-scroll-text {
+    font-family: var(--font-mono), monospace !important;
+    font-size: 0.65rem !important;
+    letter-spacing: 3px !important;
+    color: #64748b !important;
+    text-transform: uppercase !important;
+  }
+
+  .mobile-scroll-line {
+    width: 2px !important;
+    height: 42px !important;
+    background: linear-gradient(to bottom, #00f2fe, rgba(0, 242, 254, 0.2), transparent) !important;
+    animation: mobileScrollMove 2s infinite ease-in-out !important;
+    transform-origin: top !important;
+    box-shadow: 0 0 12px rgba(0, 242, 254, 0.6) !important;
+    border-radius: 2px !important;
+  }
+
+  @keyframes mobileScrollMove {
+    0% {
+      transform: translateY(-10px) scaleY(0.3);
+      opacity: 0;
+    }
+    45% {
+      transform: translateY(0px) scaleY(1);
+      opacity: 1;
+    }
+    80% {
+      transform: translateY(12px) scaleY(0.6);
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateY(20px) scaleY(0.2);
+      opacity: 0;
+    }
+  }
+
+  .desktop-about-visual {
+    display: none !important;
+  }
+  .mobile-about-visual {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .mobile-profile-card {
+    position: relative;
+    width: 290px;
+    height: 360px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(17, 24, 39, 0.6);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    padding: 8px;
+  }
+
+  .mobile-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 14px;
+  }
+
+  .mobile-card-badge {
+    position: absolute;
+    bottom: 18px;
+    right: 18px;
+    background: rgba(3, 7, 18, 0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    padding: 8px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    z-index: 6;
+  }
+
+  .mobile-badge-name {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .mobile-badge-role {
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    letter-spacing: 1px;
+  }
+
+  .corner-accent {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  .corner-accent.top-left {
+    top: 4px;
+    left: 4px;
+    border-top: 2px solid var(--secondary-color);
+    border-left: 2px solid var(--secondary-color);
+  }
+
+  .corner-accent.bottom-right {
+    bottom: 4px;
+    right: 4px;
+    border-bottom: 2px solid var(--secondary-color);
+    border-right: 2px solid var(--secondary-color);
   }
 }
 
@@ -2120,7 +2650,8 @@ html.lenis, html.lenis body {
     letter-spacing: -1px;
   }
   .hero-text h1 {
-    font-size: 1.6rem !important;
+    font-size: 2.6rem !important;
+    line-height: 1.08 !important;
   }
   .hero-btns-container {
     flex-direction: column !important;

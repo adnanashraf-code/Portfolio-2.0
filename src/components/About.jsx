@@ -9,78 +9,119 @@ function About() {
       <div className="about-grid">
         {/* Left: Profile Visual */}
         <div className="about-profile-visual">
-          <div className="hero-visual-container">
-            {/* Morphing Name branding */}
-            <div className="hero-branding-morph">
-              <span className="word word-1">ADNAN ASHRAF</span>
-              <span className="word word-2">FRONTEND DEVELOPER</span>
-            </div>
-
-            {/* Rotating Background SVG */}
-            <div className="hero-visual-svg-bg">
-              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <circle
-                  cx="100"
-                  cy="100"
-                  r="75"
-                  fill="none"
-                  stroke="rgba(6, 181, 212, 0.89)"
-                  strokeWidth="0.5"
-                  strokeDasharray="7,5"
-                />
-                <circle
-                  cx="100"
-                  cy="100"
-                  r="90"
-                  fill="none"
-                  stroke="rgba(249, 245, 245, 0.26)"
-                  strokeWidth="1"
-                />
-                <circle
-                  cx="100"
-                  cy="100"
-                  r="105"
-                  fill="none"
-                  stroke="rgba(11, 181, 211, 0.1)"
-                  strokeWidth="1"
-                  strokeDasharray="2,2"
-                />
+          {/* Desktop Visual Layout (SVG Rings, Morph Header, Badges) */}
+          <div className="desktop-about-visual">
+            <div className="hero-visual-container">
+              {/* SVG Filter for Liquid Text Morphing */}
+              <svg style={{ position: "absolute", width: 0, height: 0 }}>
+                <defs>
+                  <filter id="threshold">
+                    <feColorMatrix
+                      in="SourceGraphic"
+                      type="matrix"
+                      values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
+                    />
+                  </filter>
+                </defs>
               </svg>
+
+              {/* Morphing Name branding */}
+              <div className="hero-branding-morph">
+                <span className="word word-1">ADNAN ASHRAF</span>
+                <span className="word word-2">FRONTEND DEVELOPER</span>
+              </div>
+
+              {/* Rotating Background SVG */}
+              <div className="hero-visual-svg-bg">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                  <circle
+                    cx="100"
+                    cy="100"
+                    r="75"
+                    fill="none"
+                    stroke="rgba(6, 181, 212, 0.89)"
+                    strokeWidth="0.5"
+                    strokeDasharray="7,5"
+                  />
+                  <circle
+                    cx="100"
+                    cy="100"
+                    r="90"
+                    fill="none"
+                    stroke="rgba(249, 245, 245, 0.26)"
+                    strokeWidth="1"
+                  />
+                  <circle
+                    cx="100"
+                    cy="100"
+                    r="105"
+                    fill="none"
+                    stroke="rgba(11, 181, 211, 0.1)"
+                    strokeWidth="1"
+                    strokeDasharray="2,2"
+                  />
+                </svg>
+              </div>
+
+              {/* Background Glow */}
+              <div className="hero-bg-glow"></div>
+
+              {/* Profile Image Wrapper */}
+              <div className="hero-profile-wrapper">
+                <img
+                  src="/hero.png"
+                  alt="Adnan Ashraf - Frontend Developer"
+                  className="hero-profile-img"
+                  loading="lazy"
+                  width="360"
+                  height="480"
+                />
+
+                {/* Floating Badges */}
+                <div className="floating-badge vibe-coder">
+                  <Zap size={16} />
+                  <span>CODE ARCHITECT</span>
+                </div>
+
+                <div className="floating-badge creative-mind">
+                  <Palette size={16} />
+                  <span>CREATIVE MIND</span>
+                </div>
+
+                <div className="floating-badge frontend-design">
+                  <Layout size={16} />
+                  <span>FRONTEND DESIGN</span>
+                </div>
+
+                <div className="floating-badge ai-learner highlight">
+                  <Cpu size={16} />
+                  <span>AI LEARNER</span>
+                </div>
+              </div>
             </div>
+          </div>
 
-            {/* Background Glow */}
-            <div className="hero-bg-glow"></div>
+          {/* Mobile Visual Layout (Cyberpunk Image Card matching Image 1 design) */}
+          <div className="mobile-about-visual">
+            <div className="cyber-profile-card">
+              <div className="cyber-corner top-left"></div>
+              <div className="cyber-corner top-right"></div>
+              <div className="cyber-corner bottom-left"></div>
 
-            {/* Profile Image Wrapper */}
-            <div className="hero-profile-wrapper">
-              <img
-                src="/hero.png"
-                alt="Adnan Ashraf - Frontend Developer"
-                className="hero-profile-img"
-                loading="lazy"
-                width="360"
-                height="480"
-              />
-
-              {/* Floating Badges */}
-              <div className="floating-badge vibe-coder">
-                <Zap size={16} />
-                <span>CODE ARCHITECT</span>
+              <div className="cyber-img-container">
+                <img
+                  src="/hero.png"
+                  alt="Adnan Ashraf - Frontend Developer"
+                  className="cyber-profile-img"
+                  loading="lazy"
+                />
               </div>
 
-              <div className="floating-badge creative-mind">
-                <Palette size={16} />
-                <span>CREATIVE MIND</span>
-              </div>
-
-              <div className="floating-badge frontend-design">
-                <Layout size={16} />
-                <span>FRONTEND DESIGN</span>
-              </div>
-
-              <div className="floating-badge ai-learner highlight">
-                <Cpu size={16} />
-                <span>AI LEARNER</span>
+              <div className="cyber-profile-badge">
+                <h3 className="cyber-badge-name">Adnan Ashraf</h3>
+                <div className="cyber-badge-role">
+                  <span className="live-dot">●</span> FRONTEND DEVELOPER
+                </div>
               </div>
             </div>
           </div>
